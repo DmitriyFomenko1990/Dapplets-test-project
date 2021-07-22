@@ -1,0 +1,28 @@
+.head{
+  padding: 77px 20px 20px 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.titleWrapper{
+  display: flex;
+  align-items: center;
+}
+.title{
+
+  text-transform: uppercase;
+  &_dot{
+    color: darkred;
+  }
+}
+.titleImg{
+  width: 50px;
+  height: 50px;
+  background: url("../../../img/navigation/RR_Logo.svg") center;
+  margin-right: 10px;
+}
+.closeBtn{
+  width: 16px;
+  height: 16px;
+  background: url("../../../img/navigation/close-btn.svg") center;
+}

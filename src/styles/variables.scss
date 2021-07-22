@@ -1,0 +1,33 @@
+$black: #2A2A2A;
+$black-light: #565555;
+$grey: #565555;
+$grey-light:  #999999;
+$blue: #0085FF;
+$white: #FFFFFF;
+$green: #41BFB0;
+$violet: #5241BF;
+
+@mixin common-text-style{
+  font-family: SF-Pro-Display-Regular, sans-serif;
+  font-size: 16px;
+  line-height: 19px;
+  color: $black-light;
+}
+@mixin common-h2{
+  font-family: SF-Pro-Display-Bold, sans-serif;
+  font-size: 16px;
+  line-height: 149%;
+  color: $black;
+}
+@mixin common-h3{
+  font-family: SF-Pro-Display-Regular, sans-serif;
+  font-size: 16px;
+  line-height: 149%;
+}
+@mixin common-h4{
+  font-family: SF-Pro-Display-Medium, sans-serif;
+  font-size: 16px;
+  line-height: 19px;
+  color: $black;
+}
+

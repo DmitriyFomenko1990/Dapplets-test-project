@@ -1,0 +1,17 @@
+@import "../../../styles/variables";
+.userList{
+  padding: 20px 36px;
+}
+.list{
+  margin-top: 20px;
+}
+.listItem{
+  margin-bottom: 22px;
+  &:last-child{
+    margin-bottom: 0;
+  }
+}
+.link{
+  color: $blue;
+  text-decoration-line: underline;
+}

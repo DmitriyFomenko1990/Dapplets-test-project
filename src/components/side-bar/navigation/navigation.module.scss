@@ -1,0 +1,9 @@
+.navigation {
+  padding-bottom: 22px;
+  & > div {
+    margin-bottom: 30px;
+    &:last-child{
+      margin-bottom: 0;
+    }
+  }
+}
