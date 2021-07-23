@@ -7,6 +7,7 @@ $blue: #0085FF;
 $white: #FFFFFF;
 $green: #41BFB0;
 $violet: #5241BF;
+$red: #C65252;
 
 @mixin common-text-style{
   font-family: SF-Pro-Display-Regular, sans-serif;
@@ -31,4 +32,9 @@ $violet: #5241BF;
   line-height: 19px;
   color: $black;
 }
-
+@mixin common-h5{
+  font-family: SF-Pro-Display-Regular, sans-serif;
+  font-size: 16px;
+  line-height: 19px;
+  color: $black;
+}

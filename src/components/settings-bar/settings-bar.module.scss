@@ -1,0 +1,35 @@
+@import "../../styles/variables";
+.wrapper{
+  width: 320px;
+  height: 1400px;
+  padding: 86px 20px 0;
+
+  background: linear-gradient(180deg, rgba(185, 251, 255, 0.2) 0%, rgba(227, 220, 255, 0.2) 100%);
+  backdrop-filter: blur(30px);
+}
+.closeBtn{
+  width: 16px;
+  height: 16px;
+  background: url("../../img/navigation/close-btn.svg") center;
+  transform: rotateY(180deg);
+}
+.title{
+  font-family: SF-Pro-Display-Medium, sans-serif;
+  font-size: 24px;
+  line-height: 29px;
+
+  margin: 30px 0;
+  text-transform: uppercase;
+}
+.inputsWrapper > div{
+  margin-bottom: 60px;
+}
+.tagsWrapper{
+  border-bottom: solid 1px $white;
+  & > div{
+    margin-bottom: 40px;
+    &:last-child{
+      margin-bottom: 10px;
+    }
+  }
+}

@@ -3,7 +3,7 @@
     display: flex;
     justify-content: space-between;
     padding: 18px 86px 19px 20px;
-    width: 100%;
+    flex: 1 0 auto;
     background: linear-gradient(180deg, rgba(185, 251, 255, 0.2) 0%,
                 rgba(227, 220, 255, 0.2) 100%), linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%,
                 rgba(255, 255, 255, 0) 100%), rgba(255, 255, 255, 0.3);

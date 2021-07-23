@@ -3,13 +3,6 @@ import style from "./side-bar-heaher.module.scss";
 import logo from '../../../img/navigation/RR_Logo.svg';
 
 //TODO: css arrow
-
-
-// interface SideBarProps {
-//     isOpen: boolean;
-//     setState:  React.Dispatch<React.SetStateAction<boolean>>
-// };
-
 export interface SideBarProps  {
     isOpen: boolean;
     onHandleClick: (event :React.SyntheticEvent) => void;

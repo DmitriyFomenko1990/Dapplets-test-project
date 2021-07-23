@@ -1,14 +1,16 @@
 import React from 'react';
 import style from './tag.module.scss'
 
-type tagProps = {
+interface tagProps  {
     tag: string,
+    isCommunity?: boolean
 };
 
-const Tag = (props: tagProps) => {
+const Tag: React.FC<tagProps> = ({tag,isCommunity }) => {
     return (
-        <div className={style.wrap}>
-            <span className={style.title}>{props.tag}</span>
+        <div className={style.wrap}
+                style={{background: isCommunity ? '#41BFB0' : '#5241BF'}}>
+            <span className={style.title}>{tag}</span>
             <button className={style.closeBtn}/>
         </div>
     );
