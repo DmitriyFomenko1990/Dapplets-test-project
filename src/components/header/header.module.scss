@@ -1,0 +1,37 @@
+@import "../../styles/variables";
+.wrapper{
+    display: flex;
+    justify-content: space-between;
+    padding: 18px 86px 19px 20px;
+    width: 100%;
+    background: linear-gradient(180deg, rgba(185, 251, 255, 0.2) 0%,
+                rgba(227, 220, 255, 0.2) 100%), linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%,
+                rgba(255, 255, 255, 0) 100%), rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(20px);
+}
+.stateWrap{
+    display: flex;
+    align-items: center;
+}
+.cloudImg{
+    width: 18px;
+    height: 16px;
+    margin-right: 10px;
+    background: url("../../img/header/cloud.svg");
+}
+.title{
+    color: $another-grey-light;
+}
+.state{
+    color: $green;
+}
+.settings{
+    display: flex;
+    align-items: center;
+}
+.settingsImg{
+    width: 20px;
+    height: 18px;
+    background: url("../../img/header/settings.svg");
+    margin-right: 10px;
+}
