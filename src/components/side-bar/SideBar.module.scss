@@ -1,8 +1,8 @@
 .wrapper{
-  width: 360px;
   height: 1400px;
   background: linear-gradient(180deg, rgba(185, 251, 255, 0.2) 0%, rgba(227, 220, 255, 0.2) 100%);
   backdrop-filter: blur(30px);
+  transition: width 1s;
 }
 
 

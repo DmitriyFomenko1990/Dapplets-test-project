@@ -12,6 +12,8 @@
   margin-right: 10px;
 }
 .title{
+  transition: opacity 1s;
+  white-space: nowrap;
   &__active{
     color: $blue;
   }

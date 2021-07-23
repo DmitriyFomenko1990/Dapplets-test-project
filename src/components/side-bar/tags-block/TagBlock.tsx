@@ -2,9 +2,14 @@ import React from 'react';
 import style from "./tag-block.module.scss";
 import Tag from "../../Tag";
 
-const TagBlock = () => {
+interface TagBlockProps{
+    isOpen: boolean
+}
+
+const TagBlock: React.FC<TagBlockProps> = ({isOpen}) => {
     return (
-        <div className={style.tags}>
+        <div className={style.tags}
+             style={{display: isOpen ? 'inherit' : 'none'}}>
             <h4 className={style.tagTitle}>My tags</h4>
             <div className={style.tagsWrapper}>
                 <Tag tag='Twitter' />

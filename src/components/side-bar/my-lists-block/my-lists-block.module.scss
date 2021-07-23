@@ -1,12 +1,17 @@
 @import "../../../styles/variables";
 .userList{
   padding: 20px 36px;
+  transition: 1s;
+}
+.title{
+  white-space: nowrap;
 }
 .list{
   margin-top: 20px;
 }
 .listItem{
   margin-bottom: 22px;
+  white-space: nowrap;
   &:last-child{
     margin-bottom: 0;
   }
