@@ -9,7 +9,6 @@ import SideBarHeader from "./side-bar-heaher/SideBarHeader";
 const SideBar = () => {
     const [isOpen, setIsOpen] = useState(true)
     const onHandleClick = (event: React.SyntheticEvent) =>{
-        debugger
         console.log(event.currentTarget.classList.contains('active'))
         return setIsOpen(!isOpen);
     }

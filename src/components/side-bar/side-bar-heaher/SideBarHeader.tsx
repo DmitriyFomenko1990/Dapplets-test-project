@@ -1,7 +1,9 @@
-import React, {Dispatch, SetStateAction } from 'react';
+import React from 'react';
 import style from "./side-bar-heaher.module.scss";
-import * as events from "events";
+import logo from '../../../img/navigation/RR_Logo.svg';
+
 //TODO: css arrow
+
 
 // interface SideBarProps {
 //     isOpen: boolean;
@@ -15,16 +17,17 @@ export interface SideBarProps  {
 
 const SideBarHeader: React.FC<SideBarProps> = ({isOpen, onHandleClick}) => {
     const styleHead = {
-        padding: isOpen ?  '77px 20px 20px 36px' : '77px 0 20px',
+        padding: isOpen ? '77px 20px 20px 36px' : '77px 23px 20px',
+        display: isOpen ? 'flex' : 'block',
         justifyContent: isOpen ? 'space-between'  : 'center'
     }
     return (
         <div className={style.head}
             style={styleHead}>
             <div className={style.titleWrapper}>
-                <div className={style.titleImg}/>
+                <img className={style.titleImg} src={logo} />
                 <h2 className={style.title}
-                    style={{display: isOpen ? 'inherit' : 'none'}}>
+                    style={{opacity: isOpen ? '1' : '0'}}>
                     Dapplets Project<span className={style.title_dot}>.</span>
                 </h2>
             </div>
