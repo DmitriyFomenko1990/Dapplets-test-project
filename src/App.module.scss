@@ -6,5 +6,8 @@
   margin: 0 auto;
   display: flex;
   align-items: flex-start;
+  justify-content: space-between;
 }
-
+.content{
+  flex: 1 0 auto;
+}

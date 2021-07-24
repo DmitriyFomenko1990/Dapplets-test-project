@@ -1,6 +1,6 @@
 import React from 'react';
 import style from "./tag-block.module.scss";
-import Tag from "../../Tag";
+import Tag from "../../tag/Tag";
 
 interface TagBlockProps{
     isOpen: boolean

@@ -4,12 +4,14 @@ import style from './tag.module.scss'
 interface tagProps  {
     tag: string,
     isCommunity?: boolean
+    margin?: string;
 };
 
-const Tag: React.FC<tagProps> = ({tag,isCommunity }) => {
+const Tag: React.FC<tagProps> = ({tag,isCommunity, margin }) => {
     return (
-        <div className={style.wrap}
-                style={{background: isCommunity ? '#41BFB0' : '#5241BF'}}>
+        <div className={style.wrapper}
+                style={{background: isCommunity ? '#41BFB0' : '#5241BF',
+                        margin: margin}}>
             <span className={style.title}>{tag}</span>
             <button className={style.closeBtn}/>
         </div>

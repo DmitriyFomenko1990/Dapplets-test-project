@@ -1,0 +1,49 @@
+@import '../../../styles/variables';
+
+.wrapper{
+  border-bottom: solid 1px $white;
+  border-radius: 2px;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 20px;
+}
+.searchBlock{
+  position: relative;
+  flex: 1 0 auto;
+}
+.searchImg{
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  left: 10px;
+  top: 12px;
+  z-index: 2;
+}
+.searchInput{
+  width: 100%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%), rgba(255, 255, 255, 0.8);
+  box-shadow: 10px 10px 40px rgba(156, 185, 222, 0.36);
+  border-radius: 10px;
+  padding: 11px 36px 10px;
+  color: $another-grey-light;
+}
+.sortBlock{
+  position: relative;
+  width: 210px;
+  margin-left: 20px;
+}
+.releaseDateInput{
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%), rgba(255, 255, 255, 0.8);
+  box-shadow: 10px 10px 40px rgba(156, 185, 222, 0.36);
+  border-radius: 10px;
+  padding: 11px 10px 10px;
+  width: 100%;
+}
+.inputBtn{
+  width: 14px;
+  height: 10px;
+  background: url("../../../img/content/inputBtn.svg") center no-repeat;
+  position: absolute;
+  top: 15px;
+  right: 10px;
+}

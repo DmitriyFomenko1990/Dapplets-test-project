@@ -1,6 +1,6 @@
-@import '../styles/variables';
+@import '../../styles/variables';
 
-.wrap{
+.wrapper{
   width: fit-content;
   padding: 3px 3px 2px;
   background: $violet;
@@ -18,5 +18,5 @@
 .closeBtn{
   width: 6px;
   height: 6px;
-  background: url("../img/tag-closer.svg") center;
+  background: url("../../img/tag-closer.svg") center;
 }
