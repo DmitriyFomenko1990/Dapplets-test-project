@@ -2,6 +2,7 @@ import React from 'react';
 import style from './content.module.scss'
 import Searching from "./search-block/Searching";
 import AppsBlock from "./apps-block/AppsBlock";
+import SearchingContainer from "./search-block/SearchingContainer";
 
 interface ContentProps  {
     isOpenSideBar: boolean;
@@ -11,7 +12,7 @@ interface ContentProps  {
 const Content: React.FC<ContentProps> = ({isOpenSideBar}) => {
     return (
         <div className={style.wrapper}>
-            <Searching />
+            <SearchingContainer />
             <AppsBlock isOpenSideBar={isOpenSideBar}/>
         </div>
     );

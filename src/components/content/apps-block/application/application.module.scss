@@ -66,6 +66,10 @@
 .description{
   margin: 0 20px;
   width: 380px;
+  transition: 2s;
+  &_short{
+    width: 270px;
+  }
 }
 .source{
   color: $another-grey-light;

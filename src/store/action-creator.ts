@@ -8,7 +8,9 @@ import {Dispatch} from "redux";
            const response: any = await dappletsAPI.getDapplets(start, limit, filter, sort);
            dispatch({type: dappletsActionsType.FETCH_DAPPLETS, payload: response.data});
        } catch (e) {
+           console.log(e)
            dispatch({type: dappletsActionsType.FETCH_DAPPLETS_ERROR, payload: e})
        }
+
     }
 }

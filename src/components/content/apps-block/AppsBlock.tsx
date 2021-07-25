@@ -14,7 +14,7 @@ interface AppsBlockProps  {
 const AppsBlock: React.FC<AppsBlockProps> = ({isOpenSideBar}) => {
     const dispatch = useDispatch()
     useEffect(() => {
-        dispatch(fetchDapplets(0,20,'privacy','ASC'));
+        dispatch(fetchDapplets(0,20,'privacy','DESC'));
 
     },[]);
     const state = useTypedSelector(state => state.dappletReducer)

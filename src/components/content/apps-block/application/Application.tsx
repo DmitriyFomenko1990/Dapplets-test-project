@@ -40,8 +40,12 @@ const Application: React.FC<ApplicationType> = ({dapplet, isOpenSideBar}) => {
                     : <p className={style.address}>{dapplet.address}</p>
                     }
                 </div>
-                <p className={style.description}>{dapplet.description}</p>
-                <p className={style.source}>{dapplet.author}</p>
+                <p className={isOpenSideBar
+                        ? style.description_short
+                        : style.description}>
+                    {dapplet.description}</p>
+                <p className={style.source}>{dapplet.author}
+                </p>
                 <div className={style.tags}>
                     <TagsBlock tagsArray={TagArray} margin='0 4px 10px 0'/>
                 </div>
