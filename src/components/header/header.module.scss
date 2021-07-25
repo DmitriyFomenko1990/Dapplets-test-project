@@ -21,9 +21,15 @@
 }
 .title{
     color: $another-grey-light;
+    margin-right: 5px;
 }
 .state{
     color: $green;
+    margin-left: 3px;
+}
+.error{
+    color: $red;
+    margin-left: 3px;
 }
 .settings{
     display: flex;

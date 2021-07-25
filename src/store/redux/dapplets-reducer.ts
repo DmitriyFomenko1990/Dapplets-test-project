@@ -1,6 +1,7 @@
 import {dappletsAction, DappletState, dappletsActionsType} from "./dappletsReducerTypes";
 
 const initialDappletState: DappletState = {
+    error: '',
     dapplets: [{
         "id": "",
         "icon": "",
@@ -29,7 +30,7 @@ const dappletsReducer = (state = initialDappletState, action: dappletsAction): D
         case dappletsActionsType.FETCH_DAPPLETS :
             return {...state, dapplets: action.payload}
         case dappletsActionsType.FETCH_DAPPLETS_ERROR :
-            return {...state}
+            return {...state, error: action.payload}
         default:
             return state
     }

@@ -1,4 +1,5 @@
 export interface DappletState {
+    error: string
     dapplets: DappletType[];
 };
 

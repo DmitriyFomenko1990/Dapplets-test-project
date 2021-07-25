@@ -10,10 +10,5 @@ export const dappletsAPI = {
         return axiosInstance
             .get(`dapplets?limit=${limit}&start=${start}&filter=[{"property":"title","value":"${filter}"}]&sort=[{"property":"title","direction":"${sort}"}]`)
             .then(response =>  response.data)
-    },
-    getPicture(filename: string) {
-        return axiosInstance
-            .get(`files/${filename}`)
-            .then(response =>  response)
     }
 };
