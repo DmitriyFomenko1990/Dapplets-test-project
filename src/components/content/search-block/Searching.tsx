@@ -1,10 +1,8 @@
-import React, {ChangeEvent, Component} from 'react';
+import React, {Component} from 'react';
 import style from './searching.module.scss'
 import search from '../../../img/content/searching.svg'
 import Dropdown from 'react-dropdown';
 import './dropdown.scss';
-import {fetchDapplets} from "../../../store/action-creator";
-
 
 class Searching extends Component<any> {
     constructor (props: any) {
@@ -14,10 +12,8 @@ class Searching extends Component<any> {
         }
         this._onSelect = this._onSelect.bind(this)
     }
-
     _onSelect (option: any) {
         this.props.fetchDapplets(0, 20,'privacy', option.value);
-
     }
     render() {
     const options = [
@@ -41,4 +37,5 @@ class Searching extends Component<any> {
     );
 };
 };
+
 export default Searching;

@@ -5,7 +5,6 @@ import DescriptionSection from "./description/description-section/DescriptionSec
 import {DappletType} from "../../../../store/redux/dappletsReducerTypes";
 
 // TODO: animation for desc
-
 interface ApplicationType {
     dapplet: DappletType;
     isOpenSideBar: boolean;

@@ -2,7 +2,6 @@ import React from 'react';
 import style from './header.module.scss'
 import {useTypedSelector} from "../../store/redux/combineReducers";
 
-//TODO: change cloud padding
 const Header: React.FC = () => {
     const state = useTypedSelector(state => state.dappletReducer)
     return (

@@ -10,7 +10,6 @@ interface AppsBlockProps  {
     isOpenSideBar: boolean;
 };
 
-
 const AppsBlock: React.FC<AppsBlockProps> = ({isOpenSideBar}) => {
     const dispatch = useDispatch()
     useEffect(() => {
