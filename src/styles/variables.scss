@@ -38,3 +38,8 @@ $red: #C65252;
   line-height: 19px;
   color: $black;
 }
+@mixin common-h6{
+  font-size: 14px;
+  line-height: 17px;
+  color: $another-grey-light;
+}

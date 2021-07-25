@@ -28,6 +28,9 @@ h3 {
 h4 {
     @include common-h4;
 }
+h6 {
+    @include common-h6
+}
 button {
     font-size: 12px;
     line-height: 14px;

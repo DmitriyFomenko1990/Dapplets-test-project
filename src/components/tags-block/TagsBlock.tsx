@@ -14,7 +14,7 @@ interface TagObj  {
 const TagsBlock: React.FC<TagsBlockProps> = ({tagsArray,margin}) => {
     const tag = tagsArray.map(tagObj => {
             return <Tag tag={tagObj.title} isCommunity={tagObj.isCommunity}
-                        margin={margin} key={new Date().toLocaleString()}/>
+                        margin={margin} key={tagObj.title}/>
         })
     return (
         <div className={style.tagsWrapper}>

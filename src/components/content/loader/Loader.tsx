@@ -4,7 +4,7 @@ import style from './loader.module.scss'
 
 
 
-const Loader = () => {
+const Loader: React.FC = () => {
     return (
         <div className={style.wrapper}>
             <h4>Loading more Dapplets</h4>

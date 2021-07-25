@@ -3,10 +3,10 @@ import style from './SideBar.module.scss'
 import Navigation from "./navigation/Navigation";
 import TagBlock from "./tags-block/TagBlock";
 import MyListsBlock from "./my-lists-block/MyListsBlock";
-import SideBarHeader from "./side-bar-heaher/SideBarHeader";
+import SideBarHeader from "./side-bar-header/SideBarHeader";
 
 
-const SideBar = () => {
+const SideBar: React.FC = () => {
     const [isOpen, setIsOpen] = useState(true)
     const onHandleClick = (event: React.SyntheticEvent) =>{
         console.log(event.currentTarget.classList.contains('active'))

@@ -4,7 +4,7 @@ import CreateInput from "./create-input/CreateInput";
 import WorkingOn from "./working-on/WorkingOn";
 import TagsBlock from "../tags-block/TagsBlock";
 
-const SettingsBar = () => {
+const SettingsBar: React.FC = () => {
     const myTagArray = [
         {isCommunity: false, title: 'Twitter'},
         {isCommunity: false, title: 'Social Media'},

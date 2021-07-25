@@ -5,7 +5,7 @@ import AppsBlock from "./apps-block/AppsBlock";
 
 
 
-const Content = () => {
+const Content: React.FC = () => {
     return (
         <div className={style.wrapper}>
             <Searching />

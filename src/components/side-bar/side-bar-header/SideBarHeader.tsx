@@ -1,5 +1,5 @@
 import React from 'react';
-import style from "./side-bar-heaher.module.scss";
+import style from "./side-bar-header.module.scss";
 import logo from '../../../img/navigation/RR_Logo.svg';
 
 //TODO: css arrow
@@ -18,7 +18,7 @@ const SideBarHeader: React.FC<SideBarProps> = ({isOpen, onHandleClick}) => {
         <div className={style.head}
             style={styleHead}>
             <div className={style.titleWrapper}>
-                <img className={style.titleImg} src={logo} />
+                <img className={style.titleImg} src={logo} alt={logo}/>
                 <h2 className={style.title}
                     style={{opacity: isOpen ? '1' : '0'}}>
                     Dapplets Project<span className={style.title_dot}>.</span>

@@ -1,7 +1,7 @@
 @import '../../../../styles/variables';
 
 .wrapper{
-  padding: 12px 20px;
+  padding: 12px 0 12px 20px;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%,
           rgba(255, 255, 255, 0) 100%), rgba(255, 255, 255, 0.3);
   box-shadow: 10px 10px 40px rgba(156, 185, 222, 0.1);
@@ -12,6 +12,8 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  padding-right: 20px;
+  padding-bottom: 12px;
 }
 .burgerBtn{
   width: 18px;
@@ -46,7 +48,7 @@
   margin: 0 20px;
 }
 .titleBlock{
-  flex: 1 0 auto;
+  width: 299px;
 }
 .address{
   font-size: 12px;
@@ -55,6 +57,7 @@
 }
 .description{
   margin: 0 20px;
+  width: 380px;
 }
 .source{
   color: $another-grey-light;
@@ -69,4 +72,47 @@
   margin-right: 20px;
   background: $blue;
   border-radius: 50px;
+}
+.descriptionWrapper{
+  padding-right: 14px;
+  padding-top: 8px;
+  display: flex;
+  & > * {
+    margin-right: 70px;
+  }
+  &:last-child{
+    margin-right: 0;
+  }
+  &_less{
+    & > * {
+      margin-right: 31px;
+    }
+    &:last-child{
+      margin-right: 0;
+    }
+  }
+  &_hidden{
+    display: none;
+  }
+}
+.space{
+  width: 55px;
+}
+.firstDescriptionBlock{
+  width: 400px;
+}
+.secondDescriptionBlock{
+  width: 164px;
+}
+.thirdDescriptionBlock{
+  width: 134px;
+}
+.fourthDescriptionBlock{
+  width: 144px;
+}
+.secondDescriptionBlock ,.thirdDescriptionBlock,
+.fourthDescriptionBlock{
+  & > section {
+    margin-bottom: 27px;
+  }
 }

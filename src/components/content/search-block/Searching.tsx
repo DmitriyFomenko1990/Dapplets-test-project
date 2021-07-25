@@ -2,7 +2,7 @@ import React from 'react';
 import style from './searching.module.scss'
 import search from '../../../img/content/searching.svg'
 
-const Searching = () => {
+const Searching: React.FC = () => {
     return (
         <div className={style.wrapper}>
             <div className={style.searchBlock}>

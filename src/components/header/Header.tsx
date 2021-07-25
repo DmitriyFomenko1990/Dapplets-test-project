@@ -2,7 +2,7 @@ import React from 'react';
 import style from './header.module.scss'
 
 //TODO: change cloud padding
-const Header = () => {
+const Header: React.FC = () => {
     return (
         <header className={style.wrapper}>
             <div className={style.stateWrap}>
