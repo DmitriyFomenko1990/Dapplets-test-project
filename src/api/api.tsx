@@ -3,16 +3,7 @@ import axios from "axios";
 const axiosInstance = axios.create({
     baseURL: ` https://dapplets-hiring-api.herokuapp.com/api/v1/`,
 });
-interface dappletsAPIType{
 
-}
-
-interface getDappletsVariableType{
-    start: number;
-    limit: number;
-    filter: string | null;
-    sort:string;
-}
 
 export const dappletsAPI = {
     getDapplets(start:number, limit:number, filter:string, sort:string) {

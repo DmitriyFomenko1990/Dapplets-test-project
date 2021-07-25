@@ -6,7 +6,12 @@ import {useDispatch} from "react-redux";
 import {fetchDapplets} from "../../../store/action-creator";
 import {useTypedSelector} from "../../../store/redux/combineReducers";
 
-const AppsBlock: React.FC = () => {
+interface AppsBlockProps  {
+    isOpenSideBar: boolean;
+};
+
+
+const AppsBlock: React.FC<AppsBlockProps> = ({isOpenSideBar}) => {
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(fetchDapplets(0,20,'privacy','ASC'));
@@ -14,14 +19,13 @@ const AppsBlock: React.FC = () => {
     },[]);
     const state = useTypedSelector(state => state.dappletReducer)
     const dapplets = state.dapplets.map(dap => {
-        return <Application dapplet={dap} key={dap.id}/>
+        return <Application dapplet={dap} isOpenSideBar={isOpenSideBar}  key={dap.id} />
     });
     return (
         <div className={style.wrapper}>
             <div className={style.dapplets}>
                 {dapplets}
             </div>
-
             <Loader />
         </div>
     );

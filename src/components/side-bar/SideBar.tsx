@@ -1,24 +1,24 @@
-import React, {useState} from 'react';
+import React from 'react';
 import style from './SideBar.module.scss'
 import Navigation from "./navigation/Navigation";
 import TagBlock from "./tags-block/TagBlock";
 import MyListsBlock from "./my-lists-block/MyListsBlock";
 import SideBarHeader from "./side-bar-header/SideBarHeader";
 
+interface SideBarProps  {
+    isOpenSideBar: boolean;
+    onHandleClick: (event :React.SyntheticEvent) => void;
+};
 
-const SideBar: React.FC = () => {
-    const [isOpen, setIsOpen] = useState(true)
-    const onHandleClick = (event: React.SyntheticEvent) =>{
-        console.log(event.currentTarget.classList.contains('active'))
-        return setIsOpen(!isOpen);
-    }
+const SideBar: React.FC<SideBarProps> = ({isOpenSideBar, onHandleClick}) => {
+
     return (
         <div className={style.wrapper}
-             style={{width: isOpen ? '360px' : '98px'}}>
-            <SideBarHeader isOpen={isOpen} onHandleClick={onHandleClick} />
-            <Navigation isOpen={isOpen} onHandleClick={onHandleClick}/>
-            <MyListsBlock isOpen={isOpen}/>
-            <TagBlock isOpen={isOpen}/>
+             style={{width: isOpenSideBar ? '360px' : '98px'}}>
+            <SideBarHeader isOpenSideBar={isOpenSideBar} onHandleClick={onHandleClick} />
+            <Navigation isOpenSideBar={isOpenSideBar} onHandleClick={onHandleClick}/>
+            <MyListsBlock isOpenSideBar={isOpenSideBar}/>
+            <TagBlock isOpenSideBar={isOpenSideBar}/>
         </div>
     );
 };

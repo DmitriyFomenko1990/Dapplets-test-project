@@ -1,14 +1,19 @@
 import React, {useState} from 'react';
 import style from './application.module.scss'
-import logo from '../../../../img/content/log-test.svg'
 import TagsBlock from "../../../tags-block/TagsBlock";
 import DescriptionSection from "./description/description-section/DescriptionSection";
 import {DappletType} from "../../../../store/redux/dappletsReducerTypes";
 
 // TODO: animation for desc
 
-const Application: React.FC<{ dapplet: DappletType }> = (dappletWrapper) => {
-    const dapplet = dappletWrapper.dapplet;
+interface ApplicationType {
+    dapplet: DappletType;
+    isOpenSideBar: boolean;
+}
+
+const Application: React.FC<ApplicationType> = ({dapplet, isOpenSideBar}) => {
+    const address = dapplet.address
+    const shortAddress = address.slice(0, 5)+'......'+address.slice(-5)
     const TagArray = [
         {isCommunity: false, title: 'Social Media'},
         {isCommunity: false, title: 'Finances'},
@@ -26,9 +31,14 @@ const Application: React.FC<{ dapplet: DappletType }> = (dappletWrapper) => {
                     <span className={style.burger} />
                 </button>
                 <img className={style.logo} src={` https://dapplets-hiring-api.herokuapp.com/api/v1/files/${dapplet.icon}`} alt={'log'} />
-                <div className={style.titleBlock}>
+                <div className={isOpenSideBar
+                    ? style.titleBlock_short
+                    : style.titleBlock}>
                     <h4>{dapplet.title}</h4>
-                    <p className={style.address}>{dapplet.id}</p>
+                    {isOpenSideBar
+                    ? <p className={style.addressShort}>{shortAddress}</p>
+                    : <p className={style.address}>{dapplet.address}</p>
+                    }
                 </div>
                 <p className={style.description}>{dapplet.description}</p>
                 <p className={style.source}>{dapplet.author}</p>

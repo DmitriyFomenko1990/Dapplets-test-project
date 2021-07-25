@@ -8,18 +8,18 @@ import socialLogo from "../../../img/navigation/menu-item/social.svg";
 import financialLogo from "../../../img/navigation/menu-item/financial.svg";
 
 interface NavigationProps{
-    isOpen: boolean,
+    isOpenSideBar: boolean,
     onHandleClick: (event :React.SyntheticEvent) => void
 }
 
-const Navigation: React.FC<NavigationProps> = ({isOpen, onHandleClick}) => {
+const Navigation: React.FC<NavigationProps> = ({isOpenSideBar, onHandleClick}) => {
     return (
         <nav className={style.navigation}>
-            <MenuItem logo={allDappletsLogo} title='All Dapplets' isActive={true} isOpen={isOpen} onHandleClick={onHandleClick}/>
-            <MenuItem logo={editorsLogo} title='Editor’s Choice' isActive={false} isOpen={isOpen} onHandleClick={onHandleClick}/>
-            <MenuItem logo={essentialLogo} title='Essential Dapplets' isActive={false} isOpen={isOpen} onHandleClick={onHandleClick}/>
-            <MenuItem logo={socialLogo} title='Social Networks' isActive={false} isOpen={isOpen} onHandleClick={onHandleClick}/>
-            <MenuItem logo={financialLogo} title='Financial Dapplets' isActive={false} isOpen={isOpen} onHandleClick={onHandleClick}/>
+            <MenuItem logo={allDappletsLogo} title='All Dapplets' isActive={true} isOpenSideBar={isOpenSideBar} onHandleClick={onHandleClick}/>
+            <MenuItem logo={editorsLogo} title='Editor’s Choice' isActive={false} isOpenSideBar={isOpenSideBar} onHandleClick={onHandleClick}/>
+            <MenuItem logo={essentialLogo} title='Essential Dapplets' isActive={false} isOpenSideBar={isOpenSideBar} onHandleClick={onHandleClick}/>
+            <MenuItem logo={socialLogo} title='Social Networks' isActive={false} isOpenSideBar={isOpenSideBar} onHandleClick={onHandleClick}/>
+            <MenuItem logo={financialLogo} title='Financial Dapplets' isActive={false} isOpenSideBar={isOpenSideBar} onHandleClick={onHandleClick}/>
         </nav>
     );
 };

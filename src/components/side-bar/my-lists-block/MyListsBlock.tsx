@@ -2,13 +2,13 @@ import React from 'react';
 import style from "./my-lists-block.module.scss";
 
 interface MyListsBlockProps{
-    isOpen: boolean
+    isOpenSideBar: boolean
 }
 
-const MyListsBlock: React.FC<MyListsBlockProps> = ({isOpen}) => {
+const MyListsBlock: React.FC<MyListsBlockProps> = ({isOpenSideBar}) => {
     return (
         <div className={style.userList}
-             style={{opacity: isOpen ? '1' : '0'}}>
+             style={{opacity: isOpenSideBar ? '1' : '0'}}>
             <h4 className={style.title}>My lists</h4>
             <ul className={style.list}>
                 <li className={style.listItem}>TOP-10 Twitter Dapplets (<span className={style.link}>Me</span>)</li>

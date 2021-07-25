@@ -3,13 +3,13 @@ import style from "./tag-block.module.scss";
 import Tag from "../../tag/Tag";
 
 interface TagBlockProps{
-    isOpen: boolean
+    isOpenSideBar: boolean
 }
 
-const TagBlock: React.FC<TagBlockProps> = ({isOpen}) => {
+const TagBlock: React.FC<TagBlockProps> = ({isOpenSideBar}) => {
     return (
         <div className={style.tags}
-             style={{display: isOpen ? 'inherit' : 'none'}}>
+             style={{display: isOpenSideBar ? 'inherit' : 'none'}}>
             <h4 className={style.tagTitle}>My tags</h4>
             <div className={style.tagsWrapper}>
                 <Tag tag='Twitter' />
