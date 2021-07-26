@@ -3,6 +3,8 @@ import style from './application.module.scss'
 import TagsBlock from "../../../tags-block/TagsBlock";
 import DescriptionSection from "./description/description-section/DescriptionSection";
 import {DappletType} from "../../../../store/redux/dappletsReducerTypes";
+import preloader from "../../../../img/preloader.gif"
+import errorImg from "../../../../img/error-img.png"
 
 // TODO: animation for desc
 interface ApplicationType {
@@ -11,7 +13,7 @@ interface ApplicationType {
 }
 
 const Application: React.FC<ApplicationType> = ({dapplet, isOpenSideBar}) => {
-    const address = dapplet.address
+    const address = dapplet.address;
     const shortAddress = address.slice(0, 5)+'......'+address.slice(-5)
     const TagArray = [
         {isCommunity: false, title: 'Social Media'},
@@ -20,16 +22,37 @@ const Application: React.FC<ApplicationType> = ({dapplet, isOpenSideBar}) => {
         {isCommunity: true, title: 'Top 100'},
     ];
     const [isDropped, setIsDropped] = useState(false);
-    const onHandleClick = () =>{
+    const [installStatus, setInstallStatus] = useState('Install');
+
+    const onHandleClick = () => {
         return setIsDropped(!isDropped);
-    }
+    };
+    const onError = () => {}
+    const onInstall = (e:React.MouseEvent) => {
+        e.stopPropagation()
+        if (localStorage.getItem(dapplet.id) === null) {
+            localStorage.setItem(dapplet.id, 'INSTALLED');
+            setInstallStatus('INSTALLED');
+        }
+    };
+    const onUninstall = () =>{
+        if (localStorage.getItem(dapplet.id) === 'INSTALLED') {
+            localStorage.setItem(dapplet.id, 'UNINSTALLED');
+            setInstallStatus('UNINSTALLED');
+        }
+    };
+
     return (
         <div className={style.wrapper}>
             <div className={style.headBlock} onClick={onHandleClick}>
                 <button className={style.burgerBtn}>
                     <span className={style.burger} />
                 </button>
-                <img className={style.logo} src={` https://dapplets-hiring-api.herokuapp.com/api/v1/files/${dapplet.icon}`} alt={'log'} />
+                <img className={style.logo} onError={onError}
+                     src={` https://dapplets-hiring-api.herokuapp.com/api/v1/files/${dapplet.icon}`}
+                     alt={'log'}
+
+                     />
                 <div className={isOpenSideBar
                     ? style.titleBlock_short
                     : style.titleBlock}>
@@ -48,7 +71,14 @@ const Application: React.FC<ApplicationType> = ({dapplet, isOpenSideBar}) => {
                 <div className={style.tags}>
                     <TagsBlock tagsArray={TagArray} margin='0 4px 10px 0'/>
                 </div>
-                <button className={style.installBtn}>Install</button>
+                <button className={style.installBtn} onClick={onInstall} onMouseEnter={onUninstall}>
+                    {
+                        localStorage.getItem(dapplet.id)
+                        ? localStorage.getItem(dapplet.id)
+                        : installStatus
+                    }
+
+                </button>
             </div>
             <article className={isDropped ? style.descriptionWrapper : `${style.descriptionWrapper_hidden} ${style.descriptionWrapper}`}>
                 <div className={style.space} />

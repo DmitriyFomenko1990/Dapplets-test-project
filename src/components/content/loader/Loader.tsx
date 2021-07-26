@@ -5,7 +5,6 @@ interface IsFetch {
     isFetching: boolean
 }
 const Loader: React.FC<IsFetch> = (isFetching) => {
-    console.log(isFetching)
     return (
         <div className={style.wrapper}>
             <h4>Loading more Dapplets</h4>

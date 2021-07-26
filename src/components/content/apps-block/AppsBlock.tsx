@@ -24,29 +24,27 @@ interface Item {
     id: string;
     content: string;
 }
-interface IAppState {
-    items: Item[];
-    selected: Item[];
-}
-
-
 
 const AppsBlock: React.FC<AppsBlockProps> = ({isOpenSideBar}) => {
     const dispatch = useDispatch()
     const [page, setPage] = useState(0)
-    const [fetching, setFetching] = useState(false)
+    const [fetching, setFetching] = useState(true)
     const [DnDState, setDnDState] = useState<any>();
 
-    useEffect(() => {
-            dispatch(fetchDapplets(page,20,'privacy','DESC'))
-            setPage((prevState)=> prevState + 1 );
-    },[]);
+    // useEffect(() => {
+    //         function fetch()  {
+    //         dispatch(fetchDapplets(page,20,'privacy','DESC'))
+    //         }
+    //
+    //         setPage((prevState)=> prevState + 1 );
+    // },[]);
 
-    useEffect(() => {
+    useEffect( () => {
         if (fetching) {
             dispatch(fetchDappletsForPagination(page,20,'privacy','DESC', dappletsState))
             setPage((prevState)=> prevState + 1 );
             setFetching(false);
+            console.log(page)
         }
     },[fetching]);
 
@@ -55,18 +53,16 @@ const AppsBlock: React.FC<AppsBlockProps> = ({isOpenSideBar}) => {
          return function () {
              document.removeEventListener('scroll', onHandleScroll)
         }
-
     }, [])
-
 
     const onHandleScroll = ( e: any) => {
         if (e.target.documentElement.scrollHeight -
             (e.target.documentElement.scrollTop + e.target.documentElement.scrollTop) < 100 && page < 11){
+            debugger
             setFetching(true)
         }
     };
     const dappletsState: DappletType[] = useTypedSelector(state => state.dappletReducer.dapplets);
-
 
     const reorder = (list: Item[], startIndex: number, endIndex: number):Item[] => {
         const result = [...list];
@@ -80,11 +76,9 @@ const AppsBlock: React.FC<AppsBlockProps> = ({isOpenSideBar}) => {
         if (!result.destination) {
             return;
         }
-
         if (result.destination.index === result.source.index) {
             return;
         }
-
         const items: Item[] = reorder(
             DnDState.quotes,
             result.source.index,
@@ -105,18 +99,18 @@ const AppsBlock: React.FC<AppsBlockProps> = ({isOpenSideBar}) => {
                                 {...provided.droppableProps} >
                             {
                                 dappletsState.map((dap, index) => (
-                                        <Draggable key={index} draggableId={dap.id} index={index}>
-                                            {(providedDraggable:DraggableProvided) => (
-                                                <div>
-                                                    <div ref={providedDraggable.innerRef}
-                                                        {...providedDraggable.draggableProps}
-                                                        {...providedDraggable.dragHandleProps}>
-                                                        <Application dapplet={dap} isOpenSideBar={isOpenSideBar}/>
-                                                    </div>
-                                                    {provided.placeholder}
+                                    <Draggable key={index} draggableId={dap.id} index={index}>
+                                        {(providedDraggable:DraggableProvided) => (
+                                            <div>
+                                                <div ref={providedDraggable.innerRef}
+                                                    {...providedDraggable.draggableProps}
+                                                    {...providedDraggable.dragHandleProps}>
+                                                    <Application dapplet={dap} isOpenSideBar={isOpenSideBar}/>
                                                 </div>
-                                            )}
-                                        </Draggable>
+                                                {provided.placeholder}
+                                            </div>
+                                        )}
+                                    </Draggable>
                                     )
                                 )
                             }
@@ -133,3 +127,4 @@ const AppsBlock: React.FC<AppsBlockProps> = ({isOpenSideBar}) => {
 }
 
 export default AppsBlock;
+
