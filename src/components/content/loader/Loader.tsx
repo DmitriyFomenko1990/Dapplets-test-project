@@ -1,12 +1,18 @@
 import React from 'react';
-import style from './loader.module.scss'
+import style from './loader.module.scss';
 
-const Loader: React.FC = () => {
+interface IsFetch {
+    isFetching: boolean
+}
+const Loader: React.FC<IsFetch> = (isFetching) => {
+    console.log(isFetching)
     return (
         <div className={style.wrapper}>
             <h4>Loading more Dapplets</h4>
             <div className={style.progressBar}>
-                <span  className={style.progress}/>
+                <span  className={isFetching
+                    ? `${style.progress} ${style.progress_active}`
+                    : style.progress}/>
             </div>
         </div>
     );

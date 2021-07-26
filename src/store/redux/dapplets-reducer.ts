@@ -1,6 +1,6 @@
 import {dappletsAction, DappletState, dappletsActionsType} from "./dappletsReducerTypes";
 
-const initialDappletState: DappletState = {
+export const initialDappletState: DappletState = {
     isServerError: false,
     dapplets: [{
         "id": "",

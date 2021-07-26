@@ -25,9 +25,12 @@
   background: $blue;
   box-shadow: 0 0 6px rgba(0, 133, 255, 0.2);
   border-radius: 3px;
-  animation-duration: 3s;
-  animation-name: loader;
-  animation-iteration-count: infinite;
+  &_active{
+    animation-duration: 3s;
+    animation-name: loader;
+    animation-iteration-count: infinite;
+  }
+
 }
 
 @keyframes loader {

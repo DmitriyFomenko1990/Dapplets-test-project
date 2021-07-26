@@ -12,7 +12,6 @@ const Header: React.FC = () => {
                     { state.isServerError
                         ? <span className={style.error}>Server Error</span>
                         : <span className={style.state}>Active</span>
-
                     }
 
                 </p>
