@@ -1,5 +1,5 @@
 export interface DappletState {
-    error: string
+    isServerError: boolean;
     dapplets: DappletType[];
 };
 
@@ -35,7 +35,7 @@ interface FetchDappletsAction{
 }
 interface FetchDappletsErrorAction{
     type: dappletsActionsType.FETCH_DAPPLETS_ERROR;
-    payload: string;
+    payload: boolean;
 }
 
 export type dappletsAction = FetchDappletsAction | FetchDappletsErrorAction;

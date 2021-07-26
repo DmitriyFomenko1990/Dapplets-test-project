@@ -9,9 +9,9 @@ const Header: React.FC = () => {
             <div className={style.stateWrap}>
                 <div className={style.cloudImg} />
                 <p className={style.title}>Extension state:
-                    {state.error === ""
-                        ? <span className={style.state}>Active</span>
-                        : <span className={style.error}>{state.error}</span>
+                    { state.isServerError
+                        ? <span className={style.error}>Server Error</span>
+                        : <span className={style.state}>Active</span>
 
                     }
 
