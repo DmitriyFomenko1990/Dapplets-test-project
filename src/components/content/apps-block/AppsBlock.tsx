@@ -6,6 +6,7 @@ import {useDispatch} from "react-redux";
 import {fetchDapplets, fetchFilteredDapplets} from "../../../store/action-creators";
 import {useTypedSelector} from "../../../store/redux/combineReducers";
 import {DappletState} from "../../../store/redux/dappletsReducerTypes";
+import {Accordion} from "react-accessible-accordion";
 
 interface AppsBlockProps  {
     isOpenSideBar: boolean;
@@ -63,9 +64,9 @@ const AppsBlock: React.FC<AppsBlockProps> = ({isOpenSideBar}) => {
 
     return (
         <div className={style.wrapper} onScroll={onHandleScroll}>
-            <div className={style.dapplets}>
-                {dapplets}
-            </div>
+                <div className={style.dapplets}>
+                    {dapplets}
+                </div>
             { page < 281
                 ? <Loader isFetching={fetching}/>
                 : <div/>
