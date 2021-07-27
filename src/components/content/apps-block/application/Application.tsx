@@ -1,9 +1,8 @@
-import React, {useState} from 'react';
+import React, {SyntheticEvent, useState} from 'react';
 import style from './application.module.scss'
 import TagsBlock from "../../../tags-block/TagsBlock";
 import DescriptionSection from "./description/description-section/DescriptionSection";
 import {DappletType} from "../../../../store/redux/dappletsReducerTypes";
-import preloader from "../../../../img/preloader.gif"
 import errorImg from "../../../../img/error-img.png"
 
 // TODO: animation for desc
@@ -14,6 +13,7 @@ interface ApplicationType {
 
 const Application: React.FC<ApplicationType> = ({dapplet, isOpenSideBar}) => {
     const address = dapplet.address;
+    const [src, setSrc] = useState<string>(` https://dapplets-hiring-api.herokuapp.com/api/v1/files/${dapplet.icon}`)
     const shortAddress = address.slice(0, 5)+'......'+address.slice(-5)
     const TagArray = [
         {isCommunity: false, title: 'Social Media'},
@@ -23,11 +23,12 @@ const Application: React.FC<ApplicationType> = ({dapplet, isOpenSideBar}) => {
     ];
     const [isDropped, setIsDropped] = useState(false);
     const [installStatus, setInstallStatus] = useState('Install');
-
     const onHandleClick = () => {
         return setIsDropped(!isDropped);
     };
-    const onError = () => {}
+    const onError = (e:SyntheticEvent<HTMLDivElement>) => {
+        setSrc(errorImg)
+    }
     const onInstall = (e:React.MouseEvent) => {
         e.stopPropagation()
         if (localStorage.getItem(dapplet.id) === null) {
@@ -41,7 +42,6 @@ const Application: React.FC<ApplicationType> = ({dapplet, isOpenSideBar}) => {
             setInstallStatus('UNINSTALLED');
         }
     };
-
     return (
         <div className={style.wrapper}>
             <div className={style.headBlock} onClick={onHandleClick}>
@@ -49,7 +49,7 @@ const Application: React.FC<ApplicationType> = ({dapplet, isOpenSideBar}) => {
                     <span className={style.burger} />
                 </button>
                 <img className={style.logo} onError={onError}
-                     src={` https://dapplets-hiring-api.herokuapp.com/api/v1/files/${dapplet.icon}`}
+                     src={src}
                      alt={'log'}
 
                      />

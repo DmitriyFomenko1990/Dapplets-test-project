@@ -1,17 +1,17 @@
 import Searching from "./Searching";
-import {fetchDapplets} from "../../../store/action-creator";
+import {fetchDapplets, setFilter, setSort} from "../../../store/action-creators";
 import React from "react";
 import {connect} from "react-redux";
 
-class SearchingContainer extends React.Component {
+export class SearchingContainer extends React.Component {
     render() {
-        return <Searching { ...this.props} fetchDapplets={fetchDapplets} />
+        return <Searching { ...this.props} setFilter={setFilter} setSort={setSort} fetchDapplets={fetchDapplets} />
     }
 }
-const mapStateToPtops = () => {
+const mapStateToProps = () => {
     return {
 
     }
 }
 
-export default connect( mapStateToPtops, {fetchDapplets})(Searching)
+export default connect( mapStateToProps, {setSort, fetchDapplets, setFilter})(Searching)

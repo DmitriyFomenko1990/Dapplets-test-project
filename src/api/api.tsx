@@ -5,7 +5,12 @@ const axiosInstance = axios.create({
 });
 
 export const dappletsAPI = {
-    getDapplets(start:number, limit:number, filter:string, sort:string) {
+    getDapplets(start:number, limit:number,  sort:string) {
+        return axiosInstance
+            .get(`dapplets?limit=${limit}&start=${start}&sort=[{"property":"title","direction":"${sort}"}]`)
+            .then(response =>  response.data)
+    },
+    getFilteredDapplets(start:number, limit:number, filter:string,  sort:string) {
         return axiosInstance
             .get(`dapplets?limit=${limit}&start=${start}&filter=[{"property":"title","value":"${filter}"}]&sort=[{"property":"title","direction":"${sort}"}]`)
             .then(response =>  response.data)

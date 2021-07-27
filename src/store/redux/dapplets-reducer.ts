@@ -1,6 +1,8 @@
 import {dappletsAction, DappletState, dappletsActionsType} from "./dappletsReducerTypes";
 
 export const initialDappletState: DappletState = {
+    filter: '',
+    sort: "DESC",
     isServerError: false,
     dapplets: [{
         "id": "",
@@ -31,6 +33,10 @@ const dappletsReducer = (state = initialDappletState, action: dappletsAction): D
             return {...state, dapplets: action.payload}
         case dappletsActionsType.FETCH_DAPPLETS_ERROR :
             return {...state, isServerError: action.payload}
+        case dappletsActionsType.SET_SORT:
+            return {...state, sort: action.payload}
+        case dappletsActionsType.SET_FILTER:
+            return {...state, filter: action.payload}
         default:
             return state
     }
