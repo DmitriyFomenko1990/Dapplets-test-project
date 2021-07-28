@@ -8,8 +8,9 @@ interface TagBlockProps{
 
 const TagBlock: React.FC<TagBlockProps> = ({isOpenSideBar}) => {
     return (
-        <div className={style.tags}
-             style={{display: isOpenSideBar ? 'inherit' : 'none'}}>
+        <div className={isOpenSideBar
+            ? `${style.tags_active} ${style.tags}`
+            : style.tags }>
             <h4 className={style.tagTitle}>My tags</h4>
             <div className={style.tagsWrapper}>
                 <Tag tag='Twitter' />

@@ -7,16 +7,25 @@ import SideBarHeader from "./side-bar-header/SideBarHeader";
 
 interface SideBarProps  {
     isOpenSideBar: boolean;
-    onHandleClick: (event :React.SyntheticEvent) => void;
+    isOpenMobileSideBar: boolean;
+    onHandleClick: (event :React.MouseEvent) => void;
+    onMobileHandleClick: (event :React.MouseEvent) => void;
 };
 
-const SideBar: React.FC<SideBarProps> = ({isOpenSideBar, onHandleClick}) => {
-
+const SideBar: React.FC<SideBarProps> = (
+    {
+        isOpenSideBar,
+        onHandleClick,
+        isOpenMobileSideBar,
+        onMobileHandleClick
+    }) => {
     return (
-        <div className={style.wrapper}
-             style={{width: isOpenSideBar ? '360px' : '98px'}}>
-            <SideBarHeader isOpenSideBar={isOpenSideBar} onHandleClick={onHandleClick} />
-            <Navigation isOpenSideBar={isOpenSideBar} onHandleClick={onHandleClick}/>
+        <div className={isOpenSideBar
+                 ? `${style.wrapper_active} ${style.wrapper}`
+                 : style.wrapper }
+                 >
+            <SideBarHeader onMobileHandleClick={onMobileHandleClick} isOpenSideBar={isOpenSideBar} onHandleClick={onHandleClick} />
+            <Navigation isOpenMobileSideBar={isOpenMobileSideBar} isOpenSideBar={isOpenSideBar} onHandleClick={onHandleClick}/>
             <MyListsBlock isOpenSideBar={isOpenSideBar}/>
             <TagBlock isOpenSideBar={isOpenSideBar}/>
         </div>

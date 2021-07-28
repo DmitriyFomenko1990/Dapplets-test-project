@@ -7,12 +7,20 @@ import React, {useState} from "react";
 
 function App() {
     const [isOpenSideBar, setIsOpenSideBar] = useState(true)
-    const onHandleClick = (event: React.SyntheticEvent) =>{
-        return setIsOpenSideBar(!isOpenSideBar);
+    const [isOpenMobileSideBar, setIsOpenMobileSideBar] = useState(false)
+    const onHandleClick = (event: React.MouseEvent) =>{
+        if (!isOpenSideBar){
+            return setIsOpenSideBar(!isOpenSideBar);
+        }
     }
+    const onMobileHandleClick = (event: React.SyntheticEvent) =>{
+            return setIsOpenMobileSideBar(!isOpenMobileSideBar);
+    }
+
   return (
     <div className={style.wrapper}>
-        <SideBar isOpenSideBar={isOpenSideBar} onHandleClick={onHandleClick} />
+        <SideBar isOpenMobileSideBar={isOpenMobileSideBar} onMobileHandleClick={onMobileHandleClick}
+                 isOpenSideBar={isOpenSideBar} onHandleClick={onHandleClick}  />
         <div className={style.content}>
             <Header />
             <Content isOpenSideBar={isOpenSideBar}/>

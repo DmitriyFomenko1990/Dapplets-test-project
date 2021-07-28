@@ -1,5 +1,12 @@
 .tags{
   padding: 20px 36px;
+  display: none;
+  &_active{
+    display: inherit;
+  }
+  @media only screen and (max-width: 426px) {
+    display: none;
+  }
 }
 .tagTitle{
   margin-bottom: 20px;

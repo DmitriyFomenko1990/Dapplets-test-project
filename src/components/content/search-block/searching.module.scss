@@ -6,10 +6,16 @@
   display: flex;
   justify-content: space-between;
   padding-bottom: 20px;
+  @media only screen and (max-width: 426px) {
+    flex-direction: column;
+  }
 }
 .searchBlock{
   position: relative;
   flex: 1 0 auto;
+  @media only screen and (max-width: 426px) {
+    margin-bottom: 10px;
+  }
 }
 .searchImg{
   width: 16px;

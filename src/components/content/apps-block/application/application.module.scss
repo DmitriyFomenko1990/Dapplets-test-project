@@ -7,6 +7,9 @@
   box-shadow: 10px 10px 40px rgba(156, 185, 222, 0.1);
   backdrop-filter: blur(20px);
   border-radius: 10px;
+  @media only screen and (max-width: 426px) {
+    padding: 10px 10px 0;
+  }
 }
 .headBlock{
   display: flex;
@@ -14,6 +17,11 @@
   align-items: center;
   padding-right: 20px;
   padding-bottom: 12px;
+  @media only screen and (max-width: 426px) {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0;
+  }
 }
 .burgerBtn{
   width: 18px;
@@ -22,6 +30,9 @@
   align-items: center;
   position: relative;
   background: none;
+  @media only screen and (max-width: 426px) {
+    display: none;
+  }
 }
 .burger, :before, :after{
   width: 100%;
@@ -42,26 +53,55 @@
     right: 0;
   }
 }
+.titleWrapper{
+  display: flex;
+  @media only screen and (max-width: 426px) {
+    margin-bottom: 10px;
+    align-items: center;
+  }
+}
 .logo{
   width: 50px;
   height: 50px;
   margin: 0 20px;
+  @media only screen and (max-width: 426px) {
+    margin: 0 10px 0 0;
+  }
 }
 .titleBlock{
   width: 299px;
   &_short{
     width: 212px;
+    @media only screen and (max-width: 426px) {
+      width: 100%;
+    }
+  }
+  @media only screen and (max-width: 426px) {
+    width: 100%;
   }
 }
 .address{
   font-size: 12px;
   line-height: 14px;
   color: $grey-light;
+  @media only screen and (max-width: 426px) {
+    display: none;
+  }
 }
 .addressShort{
   font-size: 12px;
   line-height: 14px;
   color: $grey-light;
+  @media only screen and (max-width: 426px) {
+    display: none;
+  }
+}
+.mobileSource{
+  display: none;
+  @media only screen and (max-width: 426px) {
+    display: inherit;
+    color: $another-grey-light;
+  }
 }
 .description{
   margin: 0 20px;
@@ -69,21 +109,39 @@
   transition: 2s;
   &_short{
     width: 270px;
+    @media only screen and (max-width: 426px) {
+      margin: 0 0 10px 0;
+      width: 100%;
+    }
+  }
+  @media only screen and (max-width: 426px) {
+    margin: 0 0 10px 0;
+    width: 100%;
   }
 }
 .source{
   color: $another-grey-light;
   width: 186px;
+  @media only screen and (max-width: 426px) {
+    display: none;
+  }
 }
 .tags{
   width: 145px;
   margin: 0 10px 0 20px;
+  @media only screen and (max-width: 426px) {
+    width: 100%;
+    margin: 0;
+  }
 }
 .installBtn{
   padding: 6px 20px;
   margin-right: 20px;
   background: $blue;
   border-radius: 50px;
+  @media only screen and (max-width: 426px) {
+    display: none;
+  }
 }
 .descriptionWrapper{
   padding-right: 14px;
@@ -91,6 +149,9 @@
   display: flex;
   & > * {
     margin-right: 70px;
+    @media only screen and (max-width: 426px) {
+      margin-right: 0;
+    }
   }
   &:last-child{
     margin-right: 0;
@@ -103,25 +164,58 @@
       margin-right: 0;
     }
   }
+  @media only screen and (max-width: 426px) {
+    padding: 0;
+    flex-direction: column;
+  }
 }
 .space{
   width: 55px;
+  @media only screen and (max-width: 426px) {
+    display: none;
+  }
 }
 .firstDescriptionBlock{
   width: 400px;
+  @media only screen and (max-width: 426px) {
+    width: 100%;
+    margin-bottom: 10px;
+  }
 }
 .secondDescriptionBlock{
   width: 164px;
+  @media only screen and (max-width: 426px) {
+    width: 100%;
+    display: flex;
+    & > section{
+      &:last-child{
+        display: none;
+      }
+      &:first-child{
+        margin-right: 30px;
+      }
+    }
+  }
+
 }
 .thirdDescriptionBlock{
   width: 134px;
+  @media only screen and (max-width: 426px) {
+    display: none;
+  }
 }
 .fourthDescriptionBlock{
   width: 144px;
+  @media only screen and (max-width: 426px) {
+    display: none;
+  }
 }
 .secondDescriptionBlock ,.thirdDescriptionBlock,
 .fourthDescriptionBlock{
   & > section {
     margin-bottom: 27px;
+    @media only screen and (max-width: 426px) {
+      margin-bottom: 0;
+    }
   }
 }

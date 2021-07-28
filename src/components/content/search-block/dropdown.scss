@@ -9,6 +9,10 @@
   border-radius: 10px;
   padding: 11px 10px 10px;
   cursor: pointer;
+  @media only screen and (max-width: 426px) {
+    width: 100%;
+    margin-left: 0;
+  }
 }
 .is-open{
   border-radius: 10px 10px 0 0;
@@ -23,21 +27,23 @@
   cursor: pointer;
 }
 .myMenuClassName{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   width: 210px;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%), rgba(255, 255, 255, 0.8);
   box-shadow: 10px 10px 40px rgba(156, 185, 222, 0.36);
-  border-radius: 0 0 10px 10px;
-  padding: 11px 10px 10px;
+  border-radius: 10px;
+  padding: 5px 10px;
   position: absolute;
   z-index: 2;
   right: 0;
-  top: 35px;
+  top: 40px;
   height: 80px;
+  @media only screen and (max-width: 426px) {
+    width: 100%;
+  }
 }
 .Dropdown-option{
-  margin-bottom: 10px;
   cursor: pointer;
-  &:last-child{
-    margin-bottom: 0;
-  }
 }

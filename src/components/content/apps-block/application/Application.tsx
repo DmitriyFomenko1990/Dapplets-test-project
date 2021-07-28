@@ -54,19 +54,20 @@ const Application: React.FC<ApplicationType> = ({dapplet, isOpenSideBar}) => {
                         <button className={style.burgerBtn}>
                             <span className={style.burger} />
                         </button>
-                        <img className={style.logo} onError={onError}
-                             src={src}
-                             alt={'log'}
-
-                        />
-                        <div className={isOpenSideBar
-                            ? style.titleBlock_short
-                            : style.titleBlock}>
-                            <h4>{dapplet.title}</h4>
-                            {isOpenSideBar
-                                ? <p className={style.addressShort}>{shortAddress}</p>
-                                : <p className={style.address}>{dapplet.address}</p>
-                            }
+                        <div className={style.titleWrapper}>
+                            <img className={style.logo} onError={onError}
+                                 src={src}
+                                 alt={'log'}/>
+                            <div className={isOpenSideBar
+                                ? style.titleBlock_short
+                                : style.titleBlock}>
+                                <h4>{dapplet.title}</h4>
+                                {isOpenSideBar
+                                    ? <p className={style.addressShort}>{shortAddress}</p>
+                                    : <p className={style.address}>{dapplet.address}</p>
+                                }
+                                <p className={style.mobileSource}>{dapplet.author}</p>
+                            </div>
                         </div>
                         <p className={isOpenSideBar
                             ? style.description_short

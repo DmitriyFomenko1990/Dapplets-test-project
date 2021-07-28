@@ -1,3 +1,4 @@
+@import "styles/variables";
 .wrapper {
   max-width: 1920px;
   width: 100%;
@@ -7,7 +8,11 @@
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
+  @media only screen and (max-width: 426px) {
+    flex-direction: column;
+    background: #E5E5E5;;
+  }
 }
 .content{
-  flex: 1 0 auto;
+  width: 100%;
 }

@@ -5,27 +5,33 @@ import logo from '../../../img/navigation/RR_Logo.svg';
 //TODO: css arrow
 interface SideBarHeaderProps  {
     isOpenSideBar: boolean;
-    onHandleClick: (event :React.SyntheticEvent) => void;
+    onHandleClick: (event :React.MouseEvent) => void;
+    onMobileHandleClick: (event :React.MouseEvent) => void;
 };
 
-const SideBarHeader: React.FC<SideBarHeaderProps> = ({isOpenSideBar, onHandleClick}) => {
-    const styleHead = {
-        padding: isOpenSideBar ? '77px 20px 20px 36px' : '77px 23px 20px',
-        display: isOpenSideBar ? 'flex' : 'block',
-        justifyContent: isOpenSideBar ? 'space-between'  : 'center'
-    }
+const SideBarHeader: React.FC<SideBarHeaderProps> = ({isOpenSideBar, onHandleClick, onMobileHandleClick}) => {
     return (
-        <div className={style.head}
-            style={styleHead}>
+        <div className={isOpenSideBar
+            ? `${style.head_active} ${style.head}`
+            : style.head }
+            >
             <div className={style.titleWrapper}>
                 <img className={style.titleImg} src={logo} alt={logo}/>
-                <h2 className={style.title}
-                    style={{opacity: isOpenSideBar ? '1' : '0'}}>
+                <h2 className={isOpenSideBar
+                    ? `${style.title_active} ${style.title}`
+                    : style.title }>
                     Dapplets Project<span className={style.title_dot}>.</span>
                 </h2>
             </div>
-            <button className={style.closeBtn} onClick={onHandleClick}
-                    style={{display: isOpenSideBar ? 'inherit' : 'none'}}/>
+            <button className={isOpenSideBar
+                ? `${style.closeBtn_active} ${style.closeBtn}`
+                : style.closeBtn }
+                onClick={onHandleClick}
+            />
+            <button className={style.burgerBtn}
+                    onClick={onMobileHandleClick}>
+                <span className={style.burger}/>
+            </button>
         </div>
     );
 };
