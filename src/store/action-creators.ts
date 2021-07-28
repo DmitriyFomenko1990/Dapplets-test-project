@@ -9,7 +9,7 @@ export const fetchDapplets = (start:number, limit:number,  sort:string, prevStat
             const state = [...prevState,...response.data];
             dispatch(setTotalPages(response.total));
             dispatch(setDapplets(state));
-            dispatch(setIsError(false));
+           //dispatch(setIsError(false));
         } catch (e) {
             dispatch( setIsError(true));
         }
@@ -22,7 +22,7 @@ export const fetchFilteredDapplets = (start:number, limit:number, filter:string,
             const state = [...prevState,...response.data];
             dispatch(setDapplets(state));
             dispatch(setTotalPages(response.total));
-            dispatch(setIsError(false));
+            //dispatch(setIsError(false));
         } catch (e) {
             dispatch(setIsError(true));
         }
@@ -44,7 +44,7 @@ export const setCurrentPage = (page: number) => {
     }
 }
 
-const setDapplets = (dapplets: DappletType[]): dappletsAction  => ({type: dappletsActionsType.FETCH_DAPPLETS, payload: dapplets});
+export const setDapplets = (dapplets: DappletType[]): dappletsAction  => ({type: dappletsActionsType.FETCH_DAPPLETS, payload: dapplets});
 const setIsError = (isError: boolean): dappletsAction  => ({type: dappletsActionsType.FETCH_DAPPLETS_ERROR, payload: isError});
 const setTotalPages = (pages: number): dappletsAction  => ({type: dappletsActionsType.SET_TOTAL_PAGE, payload: pages});
 

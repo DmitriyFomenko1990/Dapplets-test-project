@@ -4,7 +4,7 @@ export interface DappletState {
     filter: string;
     sort: sort;
     isServerError: boolean;
-    dapplets: DappletType[];
+    dapplets: DappletType[] | never[];
 };
 
 export interface DappletType  {
