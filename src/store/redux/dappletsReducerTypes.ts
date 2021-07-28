@@ -1,4 +1,6 @@
 export interface DappletState {
+    currentPage: number;
+    totalPages: number;
     filter: string;
     sort: sort;
     isServerError: boolean;
@@ -30,25 +32,37 @@ export enum dappletsActionsType {
     FETCH_DAPPLETS = 'FETCH_DAPPLETS',
     FETCH_DAPPLETS_ERROR = 'FETCH_DAPPLETS_ERROR',
     SET_SORT = 'SET_SORT',
-    SET_FILTER = 'SET_FILTER'
+    SET_FILTER = 'SET_FILTER',
+    SET_CURRENT_PAGE = 'SET_CURRENT_PAGE',
+    SET_TOTAL_PAGE = 'SET_TOTAL_PAGE'
 }
 
 interface FetchDappletsAction{
     type: dappletsActionsType.FETCH_DAPPLETS;
-    payload: any[];
+    payload: DappletType[];
 }
 interface FetchDappletsErrorAction{
     type: dappletsActionsType.FETCH_DAPPLETS_ERROR;
     payload: boolean;
 }
-interface SetSort{
+interface SetSortAction{
     type: dappletsActionsType.SET_SORT;
     payload: sort;
 }
-interface SetFilter{
+interface SetFilterAction{
     type: dappletsActionsType.SET_FILTER;
     payload: string;
 }
+interface SetTotalPageAction{
+    type: dappletsActionsType.SET_TOTAL_PAGE;
+    payload: number;
+}
+interface SetCurrentPageAction{
+    type: dappletsActionsType.SET_CURRENT_PAGE;
+    payload: number;
+}
+
+
 export type sort = "DESC" | "ASC"
 
-export type dappletsAction = FetchDappletsAction | FetchDappletsErrorAction | SetSort | SetFilter;
+export type dappletsAction = FetchDappletsAction | FetchDappletsErrorAction | SetSortAction | SetFilterAction | SetTotalPageAction | SetCurrentPageAction;

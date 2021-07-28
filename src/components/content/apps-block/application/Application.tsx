@@ -13,6 +13,9 @@ interface ApplicationType {
 }
 
 const Application: React.FC<ApplicationType> = ({dapplet, isOpenSideBar}) => {
+    if (dapplet.title.length > 20 ) {
+        dapplet.title = dapplet.title.slice(0, 25 ) + '...'
+    }
     const address = dapplet.address;
     const [src, setSrc] = useState<string>(` https://dapplets-hiring-api.herokuapp.com/api/v1/files/${dapplet.icon}`)
     const shortAddress = address.slice(0, 5)+'......'+address.slice(-5)

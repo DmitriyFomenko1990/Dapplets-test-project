@@ -6,12 +6,12 @@ export const fetchDapplets = (start:number, limit:number,  sort:string, prevStat
     return async (dispatch: Dispatch<dappletsAction>) =>{
         try {
             const response: any = await dappletsAPI.getDapplets(start, limit, sort);
-
             const state = [...prevState,...response.data];
-            dispatch({type: dappletsActionsType.FETCH_DAPPLETS, payload: state});
-            dispatch({type: dappletsActionsType.FETCH_DAPPLETS_ERROR, payload: false});
+            dispatch(setTotalPages(response.total));
+            dispatch(setDapplets(state));
+            dispatch(setIsError(false));
         } catch (e) {
-            dispatch({type: dappletsActionsType.FETCH_DAPPLETS_ERROR, payload: true})
+            dispatch( setIsError(true));
         }
     }
 }
@@ -20,14 +20,14 @@ export const fetchFilteredDapplets = (start:number, limit:number, filter:string,
         try {
             const response: any = await dappletsAPI.getFilteredDapplets(start, limit, filter, sort);
             const state = [...prevState,...response.data];
-            dispatch({type: dappletsActionsType.FETCH_DAPPLETS, payload: state});
-            dispatch({type: dappletsActionsType.FETCH_DAPPLETS_ERROR, payload: false});
+            dispatch(setDapplets(state));
+            dispatch(setTotalPages(response.total));
+            dispatch(setIsError(false));
         } catch (e) {
-            dispatch({type: dappletsActionsType.FETCH_DAPPLETS_ERROR, payload: true})
+            dispatch(setIsError(true));
         }
     }
 }
-
 export const setSort = (sort: sort) => {
     return  (dispatch: Dispatch<dappletsAction>) =>{
         dispatch({type: dappletsActionsType.SET_SORT, payload: sort});
@@ -38,3 +38,13 @@ export const setFilter = (filter: string) => {
         dispatch({type: dappletsActionsType.SET_FILTER, payload: filter});
     }
 }
+export const setCurrentPage = (page: number) => {
+    return  (dispatch: Dispatch<dappletsAction>) =>{
+        dispatch({type: dappletsActionsType.SET_CURRENT_PAGE, payload: page});
+    }
+}
+
+const setDapplets = (dapplets: DappletType[]): dappletsAction  => ({type: dappletsActionsType.FETCH_DAPPLETS, payload: dapplets});
+const setIsError = (isError: boolean): dappletsAction  => ({type: dappletsActionsType.FETCH_DAPPLETS_ERROR, payload: isError});
+const setTotalPages = (pages: number): dappletsAction  => ({type: dappletsActionsType.SET_TOTAL_PAGE, payload: pages});
+

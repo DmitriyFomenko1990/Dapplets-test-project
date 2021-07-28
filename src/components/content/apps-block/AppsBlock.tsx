@@ -3,10 +3,9 @@ import style from './apps-block.module.scss'
 import Application from "./application/Application";
 import Loader from "../loader/Loader";
 import {useDispatch} from "react-redux";
-import {fetchDapplets, fetchFilteredDapplets} from "../../../store/action-creators";
+import {fetchDapplets, fetchFilteredDapplets, setCurrentPage} from "../../../store/action-creators";
 import {useTypedSelector} from "../../../store/redux/combineReducers";
 import {DappletState} from "../../../store/redux/dappletsReducerTypes";
-import {Accordion} from "react-accessible-accordion";
 
 interface AppsBlockProps  {
     isOpenSideBar: boolean;
@@ -14,23 +13,18 @@ interface AppsBlockProps  {
 
 const AppsBlock: React.FC<AppsBlockProps> = ({isOpenSideBar}) => {
     const dispatch = useDispatch()
-    const [page, setPage] = useState(0)
     const [fetching, setFetching] = useState(false)
+
 
     const dappletsState: DappletState = useTypedSelector(state => state.dappletReducer);
     const sortType = dappletsState.sort;
     const filter = dappletsState.filter;
-
-    useEffect(() =>{
-        document.addEventListener('scroll', onHandleScroll );
-        return function () {
-            document.removeEventListener('scroll', onHandleScroll)
-        }
-    }, [])
+    const totalPages = dappletsState.totalPages;
+    const page = dappletsState.currentPage;
 
     useEffect(() => {
         dappletsState.dapplets = [];
-        setPage(0);
+        dispatch(setCurrentPage(0))
         if (filter !== '') {
             dispatch(fetchFilteredDapplets(page, 20, filter, sortType, dappletsState.dapplets))
         }else {
@@ -41,19 +35,26 @@ const AppsBlock: React.FC<AppsBlockProps> = ({isOpenSideBar}) => {
 
     useEffect(() => {
         if (fetching) {
-            if (filter !== '') {
-                dispatch(fetchFilteredDapplets(page, 20, filter, sortType, dappletsState.dapplets))
-            } else {
-                dispatch(fetchDapplets(page,20,sortType, dappletsState.dapplets))
-            }
-            setPage(() => page + 1 );
-            setFetching(false);
+                if (filter !== '') {
+                     dispatch(fetchFilteredDapplets(page, 20, filter, sortType, dappletsState.dapplets))
+                } else {
+                    dispatch(fetchDapplets(page,20,sortType, dappletsState.dapplets))
+                }
+            dispatch(setCurrentPage(page+1 ))
+                 setFetching(false);
         }
     },[fetching]);
 
+    useEffect(() =>{
+        document.addEventListener('scroll', onHandleScroll );
+        return function () {
+            document.removeEventListener('scroll', onHandleScroll)
+        }
+    }, [])
+
     const onHandleScroll = ( e: any) => {
         if (e.target.documentElement.scrollHeight -
-            (e.target.documentElement.scrollTop + window.innerHeight) < 100 && page < 281){
+            (e.target.documentElement.scrollTop + window.innerHeight) < 100){
             setFetching(true)
         }
     };
@@ -67,7 +68,7 @@ const AppsBlock: React.FC<AppsBlockProps> = ({isOpenSideBar}) => {
                 <div className={style.dapplets}>
                     {dapplets}
                 </div>
-            { page < 281
+            { page < totalPages
                 ? <Loader isFetching={fetching}/>
                 : <div/>
             }
@@ -75,5 +76,5 @@ const AppsBlock: React.FC<AppsBlockProps> = ({isOpenSideBar}) => {
     );
 }
 
-export default AppsBlock;
+export default React.memo (AppsBlock);
 
