@@ -1,4 +1,4 @@
-import React, {SyntheticEvent, useState} from "react";
+import React, {useState} from "react";
 import style from "./application.module.scss";
 import TagsBlock from "../../../tags-block/TagsBlock";
 import DescriptionSection from "./description/description-section/DescriptionSection";
@@ -11,10 +11,12 @@ interface ApplicationType {
     dapplet: DappletType;
     isOpenSideBar: boolean;
 }
-//TODO: mobile install
 const Application: React.FC<ApplicationType> = ({dapplet, isOpenSideBar}) => {
     if (dapplet.title.length > 20 ) {
-        dapplet.title = dapplet.title.slice(0, 25 ) + '...';
+        dapplet.title = dapplet.title.slice(0, 20);
+    }
+    if (dapplet.description.length > 60 ) {
+        dapplet.description = dapplet.description.slice(0, 60 ) + '...';
     }
     const address = dapplet.address;
     const [src, setSrc] = useState<string>(` https://dapplets-hiring-api.herokuapp.com/api/v1/files/${dapplet.icon}`);
@@ -25,30 +27,47 @@ const Application: React.FC<ApplicationType> = ({dapplet, isOpenSideBar}) => {
         {isCommunity: false, title: 'Twitter'},
         {isCommunity: true, title: 'Top 100'},
     ];
+    let mobileBtnStyle = style.mobileInstallBtn
+    let BtnStyle = style.installBtn
+    let initialBtnStatus = 'INSTALL'
+
+    if (localStorage.getItem(dapplet.id) === 'INSTALLED') {
+        mobileBtnStyle = `${style.mobileInstallBtn} ${style.mobileInstallBtn_installed}`
+        BtnStyle = `${style.installBtn}  ${style.installBtn_installed}`
+        initialBtnStatus = 'INSTALLED'
+    } else if (localStorage.getItem(dapplet.id) === 'UNINSTALLED') {
+        mobileBtnStyle = `${style.mobileInstallBtn} ${style.mobileInstallBtn_uninstalled}`
+        BtnStyle = `${style.installBtn}  ${style.installBtn_uninstalled}`
+        initialBtnStatus = 'UNINSTALLED'
+    }
+
     const [isDropped, setIsDropped] = useState(false);
-    const [installStatus, setInstallStatus] = useState('Install');
+    const [btnStatus, setBtnStatus] = useState(initialBtnStatus);
     const onHandleClick = () => {
         return setIsDropped(!isDropped);
     };
-    const onError = (e:SyntheticEvent<HTMLDivElement>) => {
+    const onError = () => {
         setSrc(errorImg);
     }
+
     const onInstall = (e:React.MouseEvent) => {
         e.stopPropagation();
         if (localStorage.getItem(dapplet.id) === null) {
             localStorage.setItem(dapplet.id, 'INSTALLED');
-            setInstallStatus('INSTALLED');
+            mobileBtnStyle = `${style.mobileInstallBtn} ${style.mobileInstallBtn_installed}`
+            BtnStyle = `${style.installBtn}  ${style.installBtn_installed}`
+            setBtnStatus('INSTALLED');
         }
     };
     const onUninstall = () =>{
         if (localStorage.getItem(dapplet.id) === 'INSTALLED') {
             localStorage.setItem(dapplet.id, 'UNINSTALLED');
-            setInstallStatus('UNINSTALLED');
+            mobileBtnStyle = `${style.mobileInstallBtn} ${style.mobileInstallBtn_uninstalled}`
+            BtnStyle = `${style.installBtn}  ${style.installBtn_uninstalled}`
+            setBtnStatus('UNINSTALLED');
         }
     };
-    const onMobileInstall =() => {
 
-    }
     return (
         <div className={style.wrapper}>
                     <Collapsible trigger={
@@ -72,7 +91,8 @@ const Application: React.FC<ApplicationType> = ({dapplet, isOpenSideBar}) => {
                                     <p className={style.mobileSource}>{dapplet.author}</p>
                                 </div>
                             </div>
-                            <button className={style.mobileInstallBtn} onClick={onMobileInstall}/>
+
+                            <button className={mobileBtnStyle} onClick={onInstall} onMouseEnter={onUninstall} />
                         </div>
                         <p className={isOpenSideBar
                             ? style.description_short
@@ -83,16 +103,16 @@ const Application: React.FC<ApplicationType> = ({dapplet, isOpenSideBar}) => {
                         <div className={style.tags}>
                             <TagsBlock tagsArray={TagArray} margin='0 4px 10px 0'/>
                         </div>
-                        <button className={style.installBtn} onClick={onInstall} onMouseEnter={onUninstall}>
-                            {
-                                localStorage.getItem(dapplet.id)
-                                    ? localStorage.getItem(dapplet.id)
-                                    : installStatus
-                            }
-                        </button>
+                        <div className={style.btnInstallWrapper}>
+                            <button className={BtnStyle} onClick={onInstall}>
+                                {btnStatus}
+                            </button>
+                        </div>
                         </div>}
                     >
-                        <article className={style.descriptionWrapper}>
+                        <article className={isOpenSideBar
+                            ? `${style.descriptionWrapper} ${style.descriptionWrapper_less}`
+                            : style.descriptionWrapper}>
                             <div className={style.space} />
                             <div className={style.firstDescriptionBlock}>
                                 <DescriptionSection title='Aliquam sit' description={dapplet.text_1} />

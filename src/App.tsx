@@ -12,7 +12,11 @@ function App() {
             return setIsOpenSideBar(!isOpenSideBar);
     }
     const onMobileHandleClick = (event: React.SyntheticEvent) =>{
-            return setIsOpenMobileSideBar(!isOpenMobileSideBar);
+        isOpenMobileSideBar
+            ? document.body.style.overflow = "scroll"
+            : document.body.style.overflow = "hidden";
+        setIsOpenMobileSideBar(!isOpenMobileSideBar);
+
     }
 
   return (

@@ -115,12 +115,16 @@
 .mobileInstallBtn{
   display: none;
   @media only screen and (max-width: 426px) {
+    display: block;
     width: 26px;
     height: 26px;
     border-radius: 50%;
     background: url("../../../../img/InstallButton.svg");
     &_installed{
       background: url("../../../../img/installedButton.svg");
+    }
+    &_uninstalled{
+      background: url("../../../../img/UninstallButton.svg");
     }
   }
 }
@@ -149,25 +153,37 @@
 }
 .tags{
   width: 145px;
-  margin: 0 10px 0 20px;
+  margin: 0 0 20px;
   @media only screen and (max-width: 426px) {
     width: 100%;
     margin: 0;
   }
 }
-.installBtn{
-  padding: 6px 20px;
-  margin-right: 20px;
-  background: $blue;
-  border-radius: 50px;
+.btnInstallWrapper{
+  width: 120px;
+  display: flex;
+  justify-content: flex-end;
   @media only screen and (max-width: 426px) {
     display: none;
   }
+}
+.installBtn{
+  padding: 6px 20px;
+  background: $blue;
+  border-radius: 50px;
+  &_installed{
+    background: #CCD4DB;
+  }
+  &_uninstalled{
+    background: #FF7A00;
+  }
+
 }
 .descriptionWrapper{
   padding-right: 14px;
   padding-top: 8px;
   display: flex;
+
   & > * {
     margin-right: 70px;
     @media only screen and (max-width: 426px) {
@@ -193,6 +209,7 @@
 }
 .space{
   width: 55px;
+  transition:margin-right 1s;
   @media only screen and (max-width: 426px) {
     display: none;
   }
@@ -234,6 +251,7 @@
 }
 .secondDescriptionBlock ,.thirdDescriptionBlock,
 .fourthDescriptionBlock{
+  transition:margin-right 1s;
   & > section {
     margin-bottom: 27px;
     @media only screen and (max-width: 426px) {

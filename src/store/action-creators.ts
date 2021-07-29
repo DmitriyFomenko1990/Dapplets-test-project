@@ -38,7 +38,7 @@ export const fetchDapplets = (start:number, limit:number,  sort:string, prevStat
             dispatch(setDapplets(state));
             dispatch(setCurrentPage(nextPage));
         } catch (e) {
-            dispatch( setIsError(true));
+            dispatchError(true);
         }
     }
 }
