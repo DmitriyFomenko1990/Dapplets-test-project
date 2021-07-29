@@ -1,3 +1,4 @@
+@import "../../../styles/variables";
 .Dropdown-root{
   position: relative;
 }
@@ -9,6 +10,7 @@
   border-radius: 10px;
   padding: 11px 10px 10px;
   cursor: pointer;
+  color: $black;
   @media only screen and (max-width: 426px) {
     width: 100%;
     margin-left: 0;
@@ -38,7 +40,7 @@
   position: absolute;
   z-index: 2;
   right: 0;
-  top: 40px;
+  top: 35px;
   height: 80px;
   @media only screen and (max-width: 426px) {
     width: 100%;

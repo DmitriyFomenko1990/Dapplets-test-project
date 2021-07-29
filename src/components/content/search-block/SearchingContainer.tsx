@@ -1,11 +1,11 @@
 import Searching from "./Searching";
-import {fetchDapplets, setFilter, setSort} from "../../../store/action-creators";
+import {dispatchSort, fetchDapplets, dispatchFilter, dispatchCurrentPage} from "../../../store/action-creators";
 import React from "react";
 import {connect} from "react-redux";
 
 export class SearchingContainer extends React.Component {
     render() {
-        return <Searching { ...this.props} setFilter={setFilter} setSort={setSort} fetchDapplets={fetchDapplets} />
+        return <Searching { ...this.props} dispatchCurrentPage={dispatchCurrentPage} dispatchFilter={dispatchFilter} dispatchSort={dispatchSort} fetchDapplets={fetchDapplets} />
     }
 }
 const mapStateToProps = () => {
@@ -14,4 +14,4 @@ const mapStateToProps = () => {
     }
 }
 
-export default connect( mapStateToProps, {setSort, fetchDapplets, setFilter})(Searching)
+export default connect( mapStateToProps, {dispatchSort, fetchDapplets, dispatchFilter, dispatchCurrentPage})(Searching)

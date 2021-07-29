@@ -4,11 +4,13 @@ import search from '../../../img/content/searching.svg'
 import Dropdown from 'react-dropdown';
 import './dropdown.scss';
 import { debounce } from 'lodash'
+import {dispatchCurrentPage} from "../../../store/action-creators";
 
 interface SearchingProps {
-    setSort: any
+    dispatchCurrentPage: any;
+    dispatchFilter: any
     fetchDapplets: any;
-    setFilter: any;
+    dispatchSort: any;
     props?: any;
 }
 
@@ -29,7 +31,8 @@ class Searching extends React.Component<SearchingProps, SearchingState> {
     }
 
     delayedCall = debounce((value: string) => {
-        this.props.setFilter(value)
+        this.props.dispatchCurrentPage(0)
+        this.props.dispatchFilter(value)
     }, 1000)
 
     onHandleChange (e:React.FormEvent<HTMLInputElement>) {
@@ -38,7 +41,8 @@ class Searching extends React.Component<SearchingProps, SearchingState> {
     }
 
     _onSelect (option: any) {
-        this.props.setSort(option.value);
+        this.props.dispatchCurrentPage(0)
+        this.props.dispatchSort(option.value);
     }
     render() {
     const value = this.state.value;

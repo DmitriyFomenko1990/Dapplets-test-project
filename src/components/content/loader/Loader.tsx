@@ -1,8 +1,8 @@
-import React from 'react';
-import style from './loader.module.scss';
+import React from "react";
+import style from "./loader.module.scss";
 
 interface IsFetch {
-    isFetching: boolean
+    isFetching: boolean;
 }
 const Loader: React.FC<IsFetch> = (isFetching) => {
     return (

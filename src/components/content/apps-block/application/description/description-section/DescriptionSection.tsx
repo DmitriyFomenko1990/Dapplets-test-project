@@ -1,4 +1,5 @@
 import React from 'react';
+import style from './description-section.module.scss'
 
 interface DescriptionSectionProps{
     title: string;
@@ -7,7 +8,7 @@ interface DescriptionSectionProps{
 const DescriptionSection: React.FC<DescriptionSectionProps> = ({title,description}) => {
     return (
         <section>
-            <h6>{title}</h6>
+            <h6 className={style.title}>{title}</h6>
             <p>{description}</p>
         </section>
     );

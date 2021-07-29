@@ -1,11 +1,11 @@
-import React from 'react';
-import style from './tag.module.scss'
+import React from "react";
+import style from "./tag.module.scss"
 
 interface tagProps  {
-    tag: string,
-    isCommunity?: boolean
+    tag: string;
+    isCommunity?: boolean;
     margin?: string;
-};
+}
 
 const Tag: React.FC<tagProps> = ({tag,isCommunity, margin }) => {
     return (

@@ -1,24 +1,24 @@
-import React, {SyntheticEvent, useState} from 'react';
-import style from './application.module.scss'
+import React, {SyntheticEvent, useState} from "react";
+import style from "./application.module.scss";
 import TagsBlock from "../../../tags-block/TagsBlock";
 import DescriptionSection from "./description/description-section/DescriptionSection";
 import {DappletType} from "../../../../store/redux/dappletsReducerTypes";
-import errorImg from "../../../../img/error-img.png"
-import Collapsible from 'react-collapsible';
+import errorImg from "../../../../img/error-img.png";
+import Collapsible from "react-collapsible";
 
-// TODO: animation for desc
+
 interface ApplicationType {
     dapplet: DappletType;
     isOpenSideBar: boolean;
 }
-
+//TODO: mobile install
 const Application: React.FC<ApplicationType> = ({dapplet, isOpenSideBar}) => {
     if (dapplet.title.length > 20 ) {
-        dapplet.title = dapplet.title.slice(0, 25 ) + '...'
+        dapplet.title = dapplet.title.slice(0, 25 ) + '...';
     }
     const address = dapplet.address;
-    const [src, setSrc] = useState<string>(` https://dapplets-hiring-api.herokuapp.com/api/v1/files/${dapplet.icon}`)
-    const shortAddress = address.slice(0, 5)+'......'+address.slice(-5)
+    const [src, setSrc] = useState<string>(` https://dapplets-hiring-api.herokuapp.com/api/v1/files/${dapplet.icon}`);
+    const shortAddress = address.slice(0, 5)+'......'+address.slice(-5);
     const TagArray = [
         {isCommunity: false, title: 'Social Media'},
         {isCommunity: false, title: 'Finances'},
@@ -31,10 +31,10 @@ const Application: React.FC<ApplicationType> = ({dapplet, isOpenSideBar}) => {
         return setIsDropped(!isDropped);
     };
     const onError = (e:SyntheticEvent<HTMLDivElement>) => {
-        setSrc(errorImg)
+        setSrc(errorImg);
     }
     const onInstall = (e:React.MouseEvent) => {
-        e.stopPropagation()
+        e.stopPropagation();
         if (localStorage.getItem(dapplet.id) === null) {
             localStorage.setItem(dapplet.id, 'INSTALLED');
             setInstallStatus('INSTALLED');
@@ -46,28 +46,34 @@ const Application: React.FC<ApplicationType> = ({dapplet, isOpenSideBar}) => {
             setInstallStatus('UNINSTALLED');
         }
     };
-    return (
+    const onMobileInstall =() => {
 
+    }
+    return (
         <div className={style.wrapper}>
                     <Collapsible trigger={
                         <div className={style.headBlock} onClick={onHandleClick}>
                         <button className={style.burgerBtn}>
                             <span className={style.burger} />
                         </button>
-                        <div className={style.titleWrapper}>
-                            <img className={style.logo} onError={onError}
-                                 src={src}
-                                 alt={'log'}/>
-                            <div className={isOpenSideBar
-                                ? style.titleBlock_short
-                                : style.titleBlock}>
-                                <h4>{dapplet.title}</h4>
-                                {isOpenSideBar
-                                    ? <p className={style.addressShort}>{shortAddress}</p>
-                                    : <p className={style.address}>{dapplet.address}</p>
-                                }
-                                <p className={style.mobileSource}>{dapplet.author}</p>
+                        <div className={style.headWrapper}>
+                            <div className={style.titleWrapper}>
+                                <img className={style.logo} onError={onError}
+                                     src={src}
+                                     alt={'log'}/>
+                                <div className={isOpenSideBar
+                                    ? style.titleBlock_short
+                                    : style.titleBlock}>
+                                    <h4>{dapplet.title}</h4>
+                                    {isOpenSideBar
+                                        ? <p className={style.addressShort}>{shortAddress}</p>
+                                        : <p className={style.address}>{dapplet.address}</p>
+                                    }
+                                    <p className={style.mobileSource}>{dapplet.author}</p>
+
+                                </div>
                             </div>
+                            <button className={style.mobileInstallBtn} onClick={onMobileInstall}/>
                         </div>
                         <p className={isOpenSideBar
                             ? style.description_short
@@ -84,7 +90,6 @@ const Application: React.FC<ApplicationType> = ({dapplet, isOpenSideBar}) => {
                                     ? localStorage.getItem(dapplet.id)
                                     : installStatus
                             }
-
                         </button>
                         </div>}
                     >
@@ -110,7 +115,6 @@ const Application: React.FC<ApplicationType> = ({dapplet, isOpenSideBar}) => {
                         </article>
                     </Collapsible>
         </div>
-
     );
 };
 
