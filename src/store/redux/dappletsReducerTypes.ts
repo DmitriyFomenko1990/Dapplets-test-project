@@ -63,6 +63,6 @@ interface SetCurrentPageAction{
 }
 
 
-export type sort = "DESC" | "ASC"
+export type sort = "DESC" | "ASC";
 
 export type dappletsAction = FetchDappletsAction | FetchDappletsErrorAction | SetSortAction | SetFilterAction | SetTotalPageAction | SetCurrentPageAction;

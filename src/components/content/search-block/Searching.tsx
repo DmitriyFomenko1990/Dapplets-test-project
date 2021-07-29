@@ -1,10 +1,9 @@
-import React from 'react';
-import style from './searching.module.scss'
-import search from '../../../img/content/searching.svg'
-import Dropdown from 'react-dropdown';
-import './dropdown.scss';
-import { debounce } from 'lodash'
-import {dispatchCurrentPage} from "../../../store/action-creators";
+import React from "react";
+import style from "./searching.module.scss"
+import search from "../../../img/content/searching.svg"
+import Dropdown from "react-dropdown";
+import "./dropdown.scss";
+import { debounce } from "lodash"
 
 interface SearchingProps {
     dispatchCurrentPage: any;
@@ -26,22 +25,22 @@ class Searching extends React.Component<SearchingProps, SearchingState> {
             selected: '',
             value: '',
         }
-        this._onSelect = this._onSelect.bind(this)
-        this.onHandleChange = this.onHandleChange.bind(this)
+        this._onSelect = this._onSelect.bind(this);
+        this.onHandleChange = this.onHandleChange.bind(this);
     }
 
     delayedCall = debounce((value: string) => {
-        this.props.dispatchCurrentPage(0)
-        this.props.dispatchFilter(value)
+        this.props.dispatchCurrentPage(0);
+        this.props.dispatchFilter(value);
     }, 1000)
 
     onHandleChange (e:React.FormEvent<HTMLInputElement>) {
-        this.setState({value: e.currentTarget.value})
-        this.delayedCall(e.currentTarget.value)
+        this.setState({value: e.currentTarget.value});
+        this.delayedCall(e.currentTarget.value);
     }
 
     _onSelect (option: any) {
-        this.props.dispatchCurrentPage(0)
+        this.props.dispatchCurrentPage(0);
         this.props.dispatchSort(option.value);
     }
     render() {

@@ -1,20 +1,20 @@
-import React, {useState} from 'react';
-import style from './create-input.module.scss'
+import React, {useState} from "react";
+import style from "./create-input.module.scss";
 
 interface CreateInputProps{
-    title: string,
-    placeholder: string
+    title: string;
+    placeholder: string;
 }
 const CreateInput: React.FC<CreateInputProps> = ({title,placeholder}) => {
-    const [inputValue, setInputValue] = useState(placeholder)
+    const [inputValue, setInputValue] = useState(placeholder);
 
     const onHandleChange = (e: React.FormEvent<HTMLInputElement>) => {
-        return setInputValue(e.currentTarget.value)
+        return setInputValue(e.currentTarget.value);
     };
 
     const onBtnClick = (e: React.MouseEvent) => {
-        e.preventDefault()
-        return setInputValue(placeholder)
+        e.preventDefault();
+        return setInputValue(placeholder);
     };
     return (
         <div className={style.wrapper}>

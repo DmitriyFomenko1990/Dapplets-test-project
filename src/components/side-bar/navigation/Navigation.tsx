@@ -8,9 +8,9 @@ import socialLogo from "../../../img/navigation/menu-item/social.svg";
 import financialLogo from "../../../img/navigation/menu-item/financial.svg";
 
 interface NavigationProps{
-    isOpenSideBar: boolean,
+    isOpenSideBar: boolean;
     isOpenMobileSideBar: boolean;
-    onHandleClick: (event :React.MouseEvent) => void
+    onHandleClick: (event :React.MouseEvent) => void;
 }
 
 const Navigation: React.FC<NavigationProps> = ({isOpenSideBar, onHandleClick, isOpenMobileSideBar}) => {

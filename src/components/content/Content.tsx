@@ -1,5 +1,5 @@
-import React from 'react';
-import style from './content.module.scss'
+import React from "react";
+import style from "./content.module.scss";
 import AppsBlock from "./apps-block/AppsBlock";
 import SearchingContainer from "./search-block/SearchingContainer";
 

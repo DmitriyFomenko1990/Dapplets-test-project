@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 import style from "./side-bar-header.module.scss";
-import logo from '../../../img/navigation/RR_Logo.svg';
+import logo from "../../../img/navigation/RR_Logo.svg";
 
 //TODO: css arrow
 interface SideBarHeaderProps  {

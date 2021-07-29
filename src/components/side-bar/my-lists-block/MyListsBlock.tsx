@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 import style from "./my-lists-block.module.scss";
 
 interface MyListsBlockProps{
-    isOpenSideBar: boolean
+    isOpenSideBar: boolean;
 }
 
 const MyListsBlock: React.FC<MyListsBlockProps> = ({isOpenSideBar}) => {

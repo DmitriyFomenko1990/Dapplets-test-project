@@ -1,5 +1,5 @@
-import React from 'react';
-import style from './header.module.scss'
+import React from "react";
+import style from "./header.module.scss";
 import {useTypedSelector} from "../../store/redux/combineReducers";
 
 const Header: React.FC = () => {
@@ -13,7 +13,6 @@ const Header: React.FC = () => {
                         ? <span className={style.error}>Server Error</span>
                         : <span className={style.state}>Active</span>
                     }
-
                 </p>
             </div>
             <div className={style.settings}>

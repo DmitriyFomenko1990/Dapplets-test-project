@@ -1,5 +1,5 @@
-import React from 'react';
-import style from './settings-bar.module.scss'
+import React from "react";
+import style from "./settings-bar.module.scss";
 import CreateInput from "./create-input/CreateInput";
 import WorkingOn from "./working-on/WorkingOn";
 import TagsBlock from "../tags-block/TagsBlock";

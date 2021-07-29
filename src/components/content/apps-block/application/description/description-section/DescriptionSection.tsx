@@ -1,9 +1,9 @@
-import React from 'react';
-import style from './description-section.module.scss'
+import React from "react";
+import style from "./description-section.module.scss";
 
 interface DescriptionSectionProps{
     title: string;
-    description: string
+    description: string;
 }
 const DescriptionSection: React.FC<DescriptionSectionProps> = ({title,description}) => {
     return (

@@ -70,7 +70,6 @@ const Application: React.FC<ApplicationType> = ({dapplet, isOpenSideBar}) => {
                                         : <p className={style.address}>{dapplet.address}</p>
                                     }
                                     <p className={style.mobileSource}>{dapplet.author}</p>
-
                                 </div>
                             </div>
                             <button className={style.mobileInstallBtn} onClick={onMobileInstall}/>

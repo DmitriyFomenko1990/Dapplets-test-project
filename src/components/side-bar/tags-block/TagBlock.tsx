@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
 import style from "./tag-block.module.scss";
 import Tag from "../../tag/Tag";
 
 interface TagBlockProps{
-    isOpenSideBar: boolean
+    isOpenSideBar: boolean;
 }
 
 const TagBlock: React.FC<TagBlockProps> = ({isOpenSideBar}) => {

@@ -1,5 +1,5 @@
-import React from 'react';
-import style from './SideBar.module.scss'
+import React from "react";
+import style from "./SideBar.module.scss";
 import Navigation from "./navigation/Navigation";
 import TagBlock from "./tags-block/TagBlock";
 import MyListsBlock from "./my-lists-block/MyListsBlock";

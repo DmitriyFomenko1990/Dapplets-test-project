@@ -1,12 +1,12 @@
-import React from 'react';
-import style from './menu-item.module.scss'
+import React from "react";
+import style from "./menu-item.module.scss";
 
 interface MenuItemProps  {
-    logo: any,
-    title: string,
-    isActive: boolean,
-    isOpenSideBar: boolean,
-    onHandleClick: (event :React.MouseEvent) => void
+    logo: any;
+    title: string;
+    isActive: boolean;
+    isOpenSideBar: boolean;
+    onHandleClick: (event :React.MouseEvent) => void;
 };
 
 const MenuItem: React.FC<MenuItemProps> = ({logo , title, isActive, isOpenSideBar,onHandleClick} ) => {
