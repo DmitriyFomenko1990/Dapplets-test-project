@@ -79,10 +79,12 @@
 }
 .titleBlock{
   width: 299px;
+  margin-right: 20px;
   &_short{
     width: 212px;
     @media only screen and (max-width: 426px) {
       width: 100%;
+      margin-right: 0;
     }
   }
   @media only screen and (max-width: 426px) {
@@ -90,14 +92,6 @@
   }
 }
 .address{
-  font-size: 12px;
-  line-height: 14px;
-  color: $grey-light;
-  @media only screen and (max-width: 426px) {
-    display: none;
-  }
-}
-.addressShort{
   font-size: 12px;
   line-height: 14px;
   color: $grey-light;
@@ -129,9 +123,9 @@
   }
 }
 .description{
-  margin: 0 20px;
+  margin-right:20px;
   width: 380px;
-  transition: 2s;
+  transition: 1s;
   &_short{
     width: 270px;
     @media only screen and (max-width: 426px) {

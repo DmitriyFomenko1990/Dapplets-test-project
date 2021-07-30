@@ -9,7 +9,10 @@ interface ContentProps  {
 
 const Content: React.FC<ContentProps> = ({isOpenSideBar}) => {
     return (
-        <div className={style.wrapper}>
+        <div className={isOpenSideBar
+            ? `${style.wrapper} ${style.wrapper_small}`
+            :style.wrapper
+            }>
             <SearchingContainer />
             <AppsBlock isOpenSideBar={isOpenSideBar}/>
         </div>

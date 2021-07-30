@@ -16,3 +16,4 @@ export const dappletsAPI = {
             .then(response =>  response.data)
     }
 };
+

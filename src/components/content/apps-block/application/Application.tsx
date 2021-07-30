@@ -59,8 +59,10 @@ const Application: React.FC<ApplicationType> = ({dapplet, isOpenSideBar}) => {
             setBtnStatus('INSTALLED');
         }
     };
-    const onUninstall = () =>{
+    const onUninstall = (e:React.MouseEvent) =>{
+        debugger
         if (localStorage.getItem(dapplet.id) === 'INSTALLED') {
+            debugger
             localStorage.setItem(dapplet.id, 'UNINSTALLED');
             mobileBtnStyle = `${style.mobileInstallBtn} ${style.mobileInstallBtn_uninstalled}`
             BtnStyle = `${style.installBtn}  ${style.installBtn_uninstalled}`
@@ -84,27 +86,31 @@ const Application: React.FC<ApplicationType> = ({dapplet, isOpenSideBar}) => {
                                     ? style.titleBlock_short
                                     : style.titleBlock}>
                                     <h4>{dapplet.title}</h4>
-                                    {isOpenSideBar
-                                        ? <p className={style.addressShort}>{shortAddress}</p>
-                                        : <p className={style.address}>{dapplet.address}</p>
-                                    }
+                                    <p className={style.address}>
+                                        {isOpenSideBar
+                                            ? shortAddress
+                                            : address
+                                        }
+                                    </p>
                                     <p className={style.mobileSource}>{dapplet.author}</p>
                                 </div>
                             </div>
 
-                            <button className={mobileBtnStyle} onClick={onInstall} onMouseEnter={onUninstall} />
+                            <button className={mobileBtnStyle} onClick={onInstall} />
                         </div>
-                        <p className={isOpenSideBar
-                            ? style.description_short
+                        <div className={isOpenSideBar
+                            ? `${style.description_short} ${style.description}`
                             : style.description}>
-                            {dapplet.description}</p>
+                            <p>{dapplet.description}</p>
+                        </div  >
+
                         <p className={style.source}>{dapplet.author}
                         </p>
                         <div className={style.tags}>
                             <TagsBlock tagsArray={TagArray} margin='0 4px 10px 0'/>
                         </div>
                         <div className={style.btnInstallWrapper}>
-                            <button className={BtnStyle} onClick={onInstall}>
+                            <button className={BtnStyle} onClick={onInstall} onMouseEnter={onUninstall} >
                                 {btnStatus}
                             </button>
                         </div>
