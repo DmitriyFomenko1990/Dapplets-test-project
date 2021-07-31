@@ -6,7 +6,7 @@ import {DappletType} from "../../../../store/redux/dappletsReducerTypes";
 import errorImg from "../../../../img/error-img.png";
 import Collapsible from "react-collapsible";
 
-
+//todo: slice title and desk by css
 interface ApplicationType {
     dapplet: DappletType;
     isOpenSideBar: boolean;
@@ -59,10 +59,8 @@ const Application: React.FC<ApplicationType> = ({dapplet, isOpenSideBar}) => {
             setBtnStatus('INSTALLED');
         }
     };
-    const onUninstall = (e:React.MouseEvent) =>{
-        debugger
+    const onUninstall = () =>{
         if (localStorage.getItem(dapplet.id) === 'INSTALLED') {
-            debugger
             localStorage.setItem(dapplet.id, 'UNINSTALLED');
             mobileBtnStyle = `${style.mobileInstallBtn} ${style.mobileInstallBtn_uninstalled}`
             BtnStyle = `${style.installBtn}  ${style.installBtn_uninstalled}`
@@ -77,7 +75,9 @@ const Application: React.FC<ApplicationType> = ({dapplet, isOpenSideBar}) => {
                         <button className={style.burgerBtn}>
                             <span className={style.burger} />
                         </button>
-                        <div className={style.headWrapper}>
+                        <div className={isOpenSideBar
+                            ? style.headWrapper_short
+                            : style.headWrapper}>
                             <div className={style.titleWrapper}>
                                 <img className={style.logo} onError={onError}
                                      src={src}

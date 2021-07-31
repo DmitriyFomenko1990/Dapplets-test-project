@@ -1,6 +1,6 @@
 import React from "react";
 import style from "./header.module.scss";
-import {useTypedSelector} from "../../store/redux/combineReducers";
+import {useTypedSelector} from "../../store/redux/combine-reducers";
 
 const Header: React.FC = () => {
     const state = useTypedSelector(state => state.dappletReducer)

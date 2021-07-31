@@ -4,8 +4,8 @@ import Application from "./application/Application";
 import Loader from "../loader/Loader";
 import {useDispatch} from "react-redux";
 import {fetchDapplets, fetchFilteredDapplets} from "../../../store/action-creators";
-import {useTypedSelector} from "../../../store/redux/combineReducers";
-import {DappletState} from "../../../store/redux/dappletsReducerTypes";
+import {useTypedSelector} from "../../../store/redux/combine-reducers";
+import {DappletState, DappletType} from "../../../store/redux/dappletsReducerTypes";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 interface AppsBlockProps  {
@@ -21,33 +21,29 @@ const AppsBlock: React.FC<AppsBlockProps> = ({isOpenSideBar}) => {
     const totalPages = dappletsState.totalPages;
     const page = dappletsState.currentPage;
 
+    const fetchNewDapplets = function (page: number, filter: string, sortType: string, dapplets: DappletType[]){
+        if (filter !== '') {
+            dispatch(fetchFilteredDapplets(page, 10, filter, sortType, dapplets));
+        } else {
+            dispatch(fetchDapplets(page,20,sortType, dapplets));
+        }
+    }
+
     useEffect(() => {
         if (fetching) {
-                if (filter !== '') {
-                    dispatch(fetchFilteredDapplets(page, 10, filter, sortType, dappletsState.dapplets));
-                } else {
-                    dispatch(fetchDapplets(page,20,sortType, dappletsState.dapplets));
-                }
-                 setFetching(false);
+            fetchNewDapplets(page, filter, sortType, dappletsState.dapplets);
+            setFetching(false);
         }
     },[fetching]);
 
     useEffect(() => {
          dappletsState.dapplets= [];
-            if (filter !== '') {
-                dispatch(fetchFilteredDapplets(page, 10, filter, sortType, dappletsState.dapplets));
-            } else {
-                dispatch(fetchDapplets(page,20,sortType, dappletsState.dapplets));
-            }
-            setFetching(false);
+         fetchNewDapplets(page, filter, sortType, dappletsState.dapplets);
+         setFetching(false);
     },[sortType, filter]);
 
     const onLoad = () => {
-        if (filter !== '') {
-            dispatch(fetchFilteredDapplets(page, 10, filter, sortType, dappletsState.dapplets));
-        } else {
-            dispatch(fetchDapplets(page, 20, sortType, dappletsState.dapplets));
-        }
+        fetchNewDapplets(page, filter, sortType, dappletsState.dapplets);
     }
 
     const dapplets = dappletsState.dapplets.map((dap,index) => {

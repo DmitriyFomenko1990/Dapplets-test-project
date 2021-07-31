@@ -8,7 +8,7 @@
     padding: 77px 20px 20px 36px;
     justify-content: space-between;
   }
-  @media only screen and (max-width: 426px) {
+  @media only screen and (max-width: 768px) {
     padding: 10px;
     background: $white;
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.15);
@@ -46,13 +46,13 @@
   &_active{
   opacity: 1;
   }
-  @media only screen and (max-width: 426px) {
+  @media only screen and (max-width: 768px) {
     display: none;
   }
 }
 .burgerBtn{
   display: none;
-  @media only screen and (max-width: 426px) {
+  @media only screen and (max-width: 768px) {
     position: relative;
     display: flex;
     align-items: center;

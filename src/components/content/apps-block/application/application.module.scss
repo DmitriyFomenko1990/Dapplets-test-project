@@ -5,9 +5,8 @@
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%,
           rgba(255, 255, 255, 0) 100%), rgba(255, 255, 255, 0.3);
   box-shadow: 10px 10px 40px rgba(156, 185, 222, 0.1);
-  backdrop-filter: blur(20px);
   border-radius: 10px;
-  @media only screen and (max-width: 426px) {
+  @media only screen and (max-width: 768px) {
     padding: 10px 10px 0;
   }
 }
@@ -17,7 +16,7 @@
   align-items: center;
   padding-right: 20px;
   padding-bottom: 12px;
-  @media only screen and (max-width: 426px) {
+  @media only screen and (max-width: 768px) {
     flex-direction: column;
     align-items: flex-start;
     padding: 0;
@@ -30,7 +29,7 @@
   align-items: center;
   position: relative;
   background: none;
-  @media only screen and (max-width: 426px) {
+  @media only screen and (max-width: 768px) {
     display: none;
   }
 }
@@ -54,7 +53,21 @@
   }
 }
 .headWrapper{
-  @media only screen and (max-width: 426px) {
+  flex: 0 0 390px;
+  transition: 1s;
+  &_short{
+    transition: 1s;
+    flex: 0 0 302px;
+    @media only screen and (max-width: 768px) {
+      flex: 1 1 auto;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+  @media only screen and (max-width: 768px) {
+    flex: 1 1 auto;
     width: 100%;
     display: flex;
     align-items: center;
@@ -64,7 +77,9 @@
 }
 .titleWrapper{
   display: flex;
-  @media only screen and (max-width: 426px) {
+  margin-right: 20px;
+  @media only screen and (max-width: 768px) {
+    margin-right: 0;
     margin-bottom: 10px;
     align-items: center;
   }
@@ -73,21 +88,22 @@
   width: 50px;
   height: 50px;
   margin: 0 20px;
-  @media only screen and (max-width: 426px) {
+  @media only screen and (max-width: 768px) {
     margin: 0 10px 0 0;
   }
 }
 .titleBlock{
-  width: 299px;
+  flex: 0 0 299px;
   margin-right: 20px;
+  transition: 1s;
   &_short{
-    width: 212px;
-    @media only screen and (max-width: 426px) {
+    flex: 0 0 212px;
+    @media only screen and (max-width: 768px) {
       width: 100%;
       margin-right: 0;
     }
   }
-  @media only screen and (max-width: 426px) {
+  @media only screen and (max-width: 768px) {
     width: 100%;
   }
 }
@@ -95,20 +111,21 @@
   font-size: 12px;
   line-height: 14px;
   color: $grey-light;
-  @media only screen and (max-width: 426px) {
+  position: fixed;
+  @media only screen and (max-width: 768px) {
     display: none;
   }
 }
 .mobileSource{
   display: none;
-  @media only screen and (max-width: 426px) {
+  @media only screen and (max-width: 768px) {
     display: inherit;
     color: $another-grey-light;
   }
 }
 .mobileInstallBtn{
   display: none;
-  @media only screen and (max-width: 426px) {
+  @media only screen and (max-width: 768px) {
     display: block;
     width: 26px;
     height: 26px;
@@ -124,40 +141,42 @@
 }
 .description{
   margin-right:20px;
-  width: 380px;
+  flex: 1 1 auto;
   transition: 1s;
   &_short{
-    width: 270px;
-    @media only screen and (max-width: 426px) {
+    @media only screen and (max-width: 768px) {
       margin: 0 0 10px 0;
       width: 100%;
+      flex: auto;
     }
   }
-  @media only screen and (max-width: 426px) {
+  @media only screen and (max-width: 768px) {
     margin: 0 0 10px 0;
     width: 100%;
+    flex: auto;
   }
 }
 .source{
   color: $another-grey-light;
-  width: 186px;
-  @media only screen and (max-width: 426px) {
+  flex: 0 0 186px;
+  @media only screen and (max-width: 1900px) {
     display: none;
   }
 }
 .tags{
-  width: 145px;
+  flex: 0 0 145px;
   margin: 0 0 20px;
-  @media only screen and (max-width: 426px) {
+  @media only screen and (max-width: 768px) {
+    flex: 0 0 auto;
     width: 100%;
     margin: 0;
   }
 }
 .btnInstallWrapper{
-  width: 120px;
+  flex: 0 0 120px;
   display: flex;
   justify-content: flex-end;
-  @media only screen and (max-width: 426px) {
+  @media only screen and (max-width: 768px) {
     display: none;
   }
 }
@@ -177,10 +196,13 @@
   padding-right: 14px;
   padding-top: 8px;
   display: flex;
+  @media only screen and (max-width: 1900px) {
+   flex-wrap: wrap;
+  }
 
   & > * {
     margin-right: 70px;
-    @media only screen and (max-width: 426px) {
+    @media only screen and (max-width: 768px) {
       margin-right: 0;
     }
   }
@@ -195,7 +217,7 @@
       margin-right: 0;
     }
   }
-  @media only screen and (max-width: 426px) {
+  @media only screen and (max-width: 768px) {
     padding: 0;
     flex-direction: column;
     margin-bottom: 20px;
@@ -204,20 +226,24 @@
 .space{
   width: 55px;
   transition:margin-right 1s;
-  @media only screen and (max-width: 426px) {
+  @media only screen and (max-width: 1900px) {
     display: none;
   }
 }
 .firstDescriptionBlock{
   width: 400px;
-  @media only screen and (max-width: 426px) {
+  @media only screen and (max-width: 1900px) {
+  width: 100%;
+    margin-bottom: 20px;
+}
+  @media only screen and (max-width: 768px) {
     width: 100%;
     margin-bottom: 10px;
   }
 }
 .secondDescriptionBlock{
   width: 164px;
-  @media only screen and (max-width: 426px) {
+  @media only screen and (max-width: 768px) {
     width: 100%;
     display: flex;
     & > section{
@@ -233,22 +259,25 @@
 }
 .thirdDescriptionBlock{
   width: 134px;
-  @media only screen and (max-width: 426px) {
+  @media only screen and (max-width: 768px) {
     display: none;
   }
 }
 .fourthDescriptionBlock{
   width: 144px;
-  @media only screen and (max-width: 426px) {
+  @media only screen and (max-width: 768px) {
     display: none;
   }
 }
 .secondDescriptionBlock ,.thirdDescriptionBlock,
 .fourthDescriptionBlock{
   transition:margin-right 1s;
+  @media only screen and (max-width: 1900px) {
+   flex: 1 1 auto;
+  }
   & > section {
     margin-bottom: 27px;
-    @media only screen and (max-width: 426px) {
+      @media only screen and (max-width: 768px) {
       margin-bottom: 0;
     }
   }

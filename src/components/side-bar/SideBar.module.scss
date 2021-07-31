@@ -5,9 +5,11 @@
   transition: width 1s;
   width: 98px;
   &_active{
-    width: 360px
+    width: 360px;
+    transition: 1s;
+    flex: 1 0 360px;
   }
-  @media only screen and (max-width: 426px) {
+  @media only screen and (max-width: 768px) {
     width: 100%;
     height: initial;
     background: none;
