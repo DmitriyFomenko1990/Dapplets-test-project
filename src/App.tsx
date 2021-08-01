@@ -9,7 +9,7 @@ function App() {
     const [isOpenSideBar, setIsOpenSideBar] = useState(true);
     const [isOpenMobileSideBar, setIsOpenMobileSideBar] = useState(false);
     const onHandleClick = () =>{
-        if (window.screen.width > 768) {
+        if (window.screen.width > 1024) {
             return setIsOpenSideBar(!isOpenSideBar);
         }
     }
@@ -26,7 +26,7 @@ function App() {
         <SideBar isOpenMobileSideBar={isOpenMobileSideBar} onMobileHandleClick={onMobileHandleClick}
                  isOpenSideBar={isOpenSideBar} onHandleClick={onHandleClick}  />
         <div className={style.content}>
-            <Header />
+            <Header isOpenSideBar={isOpenSideBar} />
             <Content isOpenSideBar={isOpenSideBar}/>
         </div>
         <SettingsBar />

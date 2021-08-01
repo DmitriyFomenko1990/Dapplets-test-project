@@ -9,12 +9,14 @@
   background: linear-gradient(180deg, rgba(185, 251, 255, 0.2) 0%, rgba(227, 220, 255, 0.2) 100%);
   backdrop-filter: blur(30px);
   transition: 1s;
-
+  @media only screen and (max-width: 1024px) {
+    margin-top: 30px;
+  }
   @media only screen and (max-width: 768px) {
     width: 100%;
     margin: 0;
     padding: 10px;
     border-radius: 0;
-    background: #E5E5E5;;
+    background: #E5E5E5;
   }
 }

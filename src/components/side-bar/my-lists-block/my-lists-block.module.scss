@@ -2,7 +2,7 @@
 .userList{
   padding: 20px 36px;
   transition: 1s;
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 1024px) {
     display: none;
   }
 }

@@ -6,14 +6,14 @@
   height: 100%;
   margin: 0 auto;
   display: flex;
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 1024px) {
     flex-direction: column;
     background: #E5E5E5;;
   }
 }
 .content{
   flex: 1 1 auto;
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 1024px) {
     width: 100%;
   }
 }
