@@ -29,10 +29,6 @@ const Application: React.FC<ApplicationType> = ({dapplet, isOpenSideBar}) => {
         mobileBtnStyle = `${style.mobileInstallBtn} ${style.mobileInstallBtn_installed}`
         BtnStyle = `${style.installBtn}  ${style.installBtn_installed}`
         initialBtnStatus = 'INSTALLED'
-    } else if (localStorage.getItem(dapplet.id) === 'UNINSTALLED') {
-        mobileBtnStyle = `${style.mobileInstallBtn} ${style.mobileInstallBtn_uninstalled}`
-        BtnStyle = `${style.installBtn}  ${style.installBtn_uninstalled}`
-        initialBtnStatus = 'UNINSTALLED'
     }
 
     const [isDropped, setIsDropped] = useState(false);
@@ -53,12 +49,14 @@ const Application: React.FC<ApplicationType> = ({dapplet, isOpenSideBar}) => {
             setBtnStatus('INSTALLED');
         }
     };
-    const onUninstall = () =>{
+    const onHover = () =>{
         if (localStorage.getItem(dapplet.id) === 'INSTALLED') {
-            localStorage.setItem(dapplet.id, 'UNINSTALLED');
-            mobileBtnStyle = `${style.mobileInstallBtn} ${style.mobileInstallBtn_uninstalled}`
-            BtnStyle = `${style.installBtn}  ${style.installBtn_uninstalled}`
             setBtnStatus('UNINSTALLED');
+        }
+    };
+    const onLeave = () =>{
+        if (localStorage.getItem(dapplet.id) === 'INSTALLED') {
+            setBtnStatus('INSTALLED');
         }
     };
 
@@ -66,50 +64,51 @@ const Application: React.FC<ApplicationType> = ({dapplet, isOpenSideBar}) => {
         <div className={style.wrapper}>
                     <Collapsible trigger={
                         <div className={style.headBlock} onClick={onHandleClick}>
-                        <button className={style.burgerBtn}>
-                            <span className={style.burger} />
-                        </button>
-                        <div className={isOpenSideBar
-                            ? style.headWrapper_short
-                            : style.headWrapper}>
-                            <div className={style.titleWrapper}>
-                                <img className={style.logo} onError={onError}
-                                     src={src}
-                                     alt={'log'}/>
-                                <div className={isOpenSideBar
-                                    ? style.titleBlock_short
-                                    : style.titleBlock}>
-                                    <h4 className={style.title}>{dapplet.title}</h4>
-                                    <p className={style.address}>
-                                        {isOpenSideBar
-                                            ? shortAddress
-                                            : address
-                                        }
-                                    </p>
-                                    <p className={style.mobileSource}>{dapplet.author}</p>
-                                </div>
-                            </div>
-
-                            <button className={mobileBtnStyle} onClick={onInstall} />
-                        </div>
-                        <div className={isOpenSideBar
-                            ? `${style.description_short} ${style.description}`
-                            : style.description}>
-                            <p>{dapplet.description}</p>
-                        </div  >
-
-                        <p className={style.source}>{dapplet.author}
-                        </p>
-                        <div className={style.tags}>
-                            <TagsBlock tagsArray={TagArray} margin='0 4px 10px 0'/>
-                        </div>
-                        <div className={style.btnInstallWrapper}>
-                            <button className={BtnStyle} onClick={onInstall} onMouseEnter={onUninstall} >
-                                {btnStatus}
+                            <button className={style.burgerBtn}>
+                                <span className={style.burger} />
                             </button>
+                            <div className={isOpenSideBar
+                                ? style.headWrapper_short
+                                : style.headWrapper}>
+                                <div className={style.titleWrapper}>
+                                    <img className={style.logo} onError={onError}
+                                         src={src}
+                                         alt={'log'}/>
+                                    <div className={isOpenSideBar
+                                        ? style.titleBlock_short
+                                        : style.titleBlock}>
+                                        <h4 className={style.title}>{dapplet.title}</h4>
+                                        <p className={style.address}>
+                                            {isOpenSideBar
+                                                ? shortAddress
+                                                : address
+                                            }
+                                        </p>
+                                        <p className={style.mobileSource}>{dapplet.author}</p>
+                                    </div>
+                                </div>
+
+                                <button className={mobileBtnStyle} onClick={onInstall} />
+                            </div>
+                            <div className={isOpenSideBar
+                                ? `${style.description_short} ${style.description}`
+                                : style.description}>
+                                <p>{dapplet.description}</p>
+                            </div  >
+
+                            <p className={style.source}>{dapplet.author}
+                            </p>
+                            <div className={style.tags}>
+                                <TagsBlock tagsArray={TagArray} margin='0 4px 10px 0'/>
+                            </div>
+                            <div className={style.btnInstallWrapper}>
+                                <button className={BtnStyle} onClick={onInstall} onMouseEnter={onHover}
+                                        onMouseLeave={onLeave}>
+                                    {btnStatus}
+                                </button>
+                            </div>
                         </div>
-                        </div>}
-                    >
+                    }>
                         <article className={isOpenSideBar
                             ? `${style.descriptionWrapper} ${style.descriptionWrapper_less}`
                             : style.descriptionWrapper}>

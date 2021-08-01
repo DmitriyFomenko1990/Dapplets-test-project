@@ -1,12 +1,12 @@
 @import "../../styles/variables";
 .wrapper{
-  width: 320px;
+  flex: 0 0 320px;
   height: 1400px;
   padding: 86px 20px 0;
 
   background: linear-gradient(180deg, rgba(185, 251, 255, 0.2) 0%, rgba(227, 220, 255, 0.2) 100%);
   backdrop-filter: blur(30px);
-  @media only screen and (max-width: 1440px) {
+  @media only screen and (max-width: 1900px) {
     display: none;
   }
 }

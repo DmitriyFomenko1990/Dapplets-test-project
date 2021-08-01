@@ -15,7 +15,6 @@
   flex-direction: row;
   align-items: center;
   padding-right: 20px;
-  padding-bottom: 12px;
   @media only screen and (max-width: 768px) {
     flex-direction: column;
     align-items: flex-start;
@@ -77,11 +76,11 @@
 }
 .titleWrapper{
   display: flex;
+  align-items: center;
   margin-right: 20px;
   @media only screen and (max-width: 768px) {
     margin-right: 0;
     margin-bottom: 10px;
-    align-items: center;
   }
 }
 .logo{
@@ -94,13 +93,11 @@
 }
 .titleBlock{
   width: 299px;
-  margin-right: 20px;
   transition: 1s;
   &_short{
     width: 212px;
     @media only screen and (max-width: 768px) {
       width: 184px;
-      margin-right: 0;
     }
   }
   @media only screen and (max-width: 768px) {
@@ -111,6 +108,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  margin-bottom: 3px;
 }
 .address{
   font-size: 12px;
@@ -135,12 +133,10 @@
     width: 26px;
     height: 26px;
     border-radius: 50%;
+    margin-bottom: 10px;
     background: url("../../../../img/InstallButton.svg");
     &_installed{
       background: url("../../../../img/installedButton.svg");
-    }
-    &_uninstalled{
-      background: url("../../../../img/UninstallButton.svg");
     }
   }
 }
@@ -148,6 +144,10 @@
   margin-right:20px;
   flex: 1 1 auto;
   transition: 1s;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow-y: hidden;
   &_short{
     @media only screen and (max-width: 768px) {
       margin: 0 0 10px 0;
@@ -170,11 +170,9 @@
 }
 .tags{
   flex: 0 0 145px;
-  margin: 0 0 20px;
   @media only screen and (max-width: 768px) {
     flex: 0 0 auto;
     width: 100%;
-    margin: 0;
   }
 }
 .btnInstallWrapper{
@@ -191,15 +189,15 @@
   border-radius: 50px;
   &_installed{
     background: #CCD4DB;
-  }
-  &_uninstalled{
-    background: #FF7A00;
+    &:hover{
+      background: #FF7A00;
+    }
   }
 
 }
 .descriptionWrapper{
   padding-right: 14px;
-  padding-top: 8px;
+  padding-top: 20px;
   display: flex;
   @media only screen and (max-width: 1900px) {
    flex-wrap: wrap;
@@ -231,7 +229,7 @@
 .space{
   width: 55px;
   transition:margin-right 1s;
-  @media only screen and (max-width: 1900px) {
+  @media only screen and (max-width: 1440px) {
     display: none;
   }
 }
@@ -279,6 +277,10 @@
   transition:margin-right 1s;
   @media only screen and (max-width: 1900px) {
    flex: 1 1 auto;
+    margin-left: 50px;
+  }
+  @media only screen and (max-width: 768px) {
+    margin-left: 0;
   }
   & > section {
     margin-bottom: 27px;

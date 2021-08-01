@@ -2,6 +2,9 @@
 
 .wrapper{
   padding: 20px 0 40px;
+  @media only screen and (max-width: 768px) {
+    padding: 10px 0 40px;
+  }
 }
 .dapplets >  div{
   margin-bottom: 20px;

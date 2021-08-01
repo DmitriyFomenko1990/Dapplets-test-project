@@ -7,17 +7,18 @@
   &_active{
     width: 360px;
     transition: 1s;
-    flex: 1 0 360px;
+    flex: 0 0 360px;
   }
   @media only screen and (max-width: 768px) {
     width: 100%;
     height: initial;
     background: none;
     backdrop-filter: none;
+    &_active{
+      flex: initial;
+    }
   }
-  &_active{
-    flex: initial;
-  }
+
 }
 
 

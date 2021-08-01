@@ -9,6 +9,7 @@ function App() {
     const [isOpenSideBar, setIsOpenSideBar] = useState(true);
     const [isOpenMobileSideBar, setIsOpenMobileSideBar] = useState(false);
     const onHandleClick = (event: React.MouseEvent) =>{
+        console.log(event.currentTarget)
             return setIsOpenSideBar(!isOpenSideBar);
     }
     const onMobileHandleClick = (event: React.SyntheticEvent) =>{
