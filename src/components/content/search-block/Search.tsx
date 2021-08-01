@@ -1,5 +1,5 @@
 import React from "react";
-import style from "./searching.module.scss"
+import style from "./search.module.scss"
 import search from "../../../img/content/searching.svg"
 import Dropdown from "react-dropdown";
 import "./dropdown.scss";
@@ -18,7 +18,7 @@ interface SearchingState {
     value?: string;
 }
 
-class Searching extends React.Component<SearchingProps, SearchingState> {
+class Search extends React.Component<SearchingProps, SearchingState> {
     constructor (props: SearchingProps) {
         super(props)
         this.state = {
@@ -67,4 +67,4 @@ class Searching extends React.Component<SearchingProps, SearchingState> {
 };
 };
 
-export default Searching;
+export default Search;

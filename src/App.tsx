@@ -8,9 +8,10 @@ import React, {useState} from "react";
 function App() {
     const [isOpenSideBar, setIsOpenSideBar] = useState(true);
     const [isOpenMobileSideBar, setIsOpenMobileSideBar] = useState(false);
-    const onHandleClick = (event: React.MouseEvent) =>{
-        console.log(event.currentTarget)
+    const onHandleClick = () =>{
+        if (window.screen.width > 768) {
             return setIsOpenSideBar(!isOpenSideBar);
+        }
     }
     const onMobileHandleClick = (event: React.SyntheticEvent) =>{
         isOpenMobileSideBar
