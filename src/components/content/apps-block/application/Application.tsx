@@ -6,18 +6,12 @@ import {DappletType} from "../../../../store/redux/dappletsReducerTypes";
 import errorImg from "../../../../img/error-img.png";
 import Collapsible from "react-collapsible";
 
-//todo: slice title and desk by css
 interface ApplicationType {
     dapplet: DappletType;
     isOpenSideBar: boolean;
 }
 const Application: React.FC<ApplicationType> = ({dapplet, isOpenSideBar}) => {
-    if (dapplet.title.length > 20 ) {
-        dapplet.title = dapplet.title.slice(0, 20);
-    }
-    if (dapplet.description.length > 60 ) {
-        dapplet.description = dapplet.description.slice(0, 60 ) + '...';
-    }
+
     const address = dapplet.address;
     const [src, setSrc] = useState<string>(` https://dapplets-hiring-api.herokuapp.com/api/v1/files/${dapplet.icon}`);
     const shortAddress = address.slice(0, 5)+'......'+address.slice(-5);
@@ -85,7 +79,7 @@ const Application: React.FC<ApplicationType> = ({dapplet, isOpenSideBar}) => {
                                 <div className={isOpenSideBar
                                     ? style.titleBlock_short
                                     : style.titleBlock}>
-                                    <h4>{dapplet.title}</h4>
+                                    <h4 className={style.title}>{dapplet.title}</h4>
                                     <p className={style.address}>
                                         {isOpenSideBar
                                             ? shortAddress

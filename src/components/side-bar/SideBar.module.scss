@@ -15,6 +15,9 @@
     background: none;
     backdrop-filter: none;
   }
+  &_active{
+    flex: initial;
+  }
 }
 
 

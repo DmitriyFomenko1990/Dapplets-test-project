@@ -93,19 +93,24 @@
   }
 }
 .titleBlock{
-  flex: 0 0 299px;
+  width: 299px;
   margin-right: 20px;
   transition: 1s;
   &_short{
-    flex: 0 0 212px;
+    width: 212px;
     @media only screen and (max-width: 768px) {
-      width: 100%;
+      width: 184px;
       margin-right: 0;
     }
   }
   @media only screen and (max-width: 768px) {
-    width: 100%;
+    width: 184px;
   }
+}
+.title{
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 .address{
   font-size: 12px;
