@@ -6,6 +6,7 @@ import "./dropdown.scss";
 import { debounce } from "lodash"
 
 interface SearchingProps {
+    dispatchDapplets: any;
     dispatchCurrentPage: any;
     dispatchFilter: any
     fetchDapplets: any;
@@ -30,6 +31,7 @@ class Search extends React.Component<SearchingProps, SearchingState> {
     }
 
     delayedCall = debounce((value: string) => {
+        this.props.dispatchDapplets([]);
         this.props.dispatchCurrentPage(0);
         this.props.dispatchFilter(value);
     }, 1000)
@@ -40,6 +42,7 @@ class Search extends React.Component<SearchingProps, SearchingState> {
     }
 
     _onSelect (option: any) {
+        this.props.dispatchDapplets([]);
         this.props.dispatchCurrentPage(0);
         this.props.dispatchSort(option.value);
     }
@@ -65,6 +68,6 @@ class Search extends React.Component<SearchingProps, SearchingState> {
         </div>
     );
 };
-};
+}
 
 export default Search;

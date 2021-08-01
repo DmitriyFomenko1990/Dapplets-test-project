@@ -6,6 +6,7 @@
           rgba(255, 255, 255, 0) 100%), rgba(255, 255, 255, 0.3);
   box-shadow: 10px 10px 40px rgba(156, 185, 222, 0.1);
   border-radius: 10px;
+  cursor: pointer;
   @media only screen and (max-width: 768px) {
     padding: 10px 10px 0;
   }
@@ -242,18 +243,18 @@
   width: 55px;
   transition:margin-right 1s;
   @media only screen and (max-width: 1440px) {
-    display: none;
+     display: none;
   }
 }
 .firstDescriptionBlock{
   width: 400px;
   @media only screen and (max-width: 1900px) {
-  width: 100%;
-    margin-bottom: 20px;
+    width: 100%;
+    margin: 0 50px 20px;
 }
   @media only screen and (max-width: 768px) {
     width: 100%;
-    margin-bottom: 10px;
+    margin: 0 0 10px;
   }
 }
 .secondDescriptionBlock{

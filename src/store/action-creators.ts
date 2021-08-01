@@ -76,6 +76,11 @@ export const dispatchCurrentPage = (page: number) => {
         dispatch(setCurrentPage(page));
     }
 }
+export const dispatchDapplets = (dapplets: DappletType[]) => {
+    return  (dispatch: Dispatch<dappletsAction>) =>{
+        dispatch(setDapplets(dapplets));
+    }
+}
 
 export const setDapplets = (dapplets: DappletType[]): dappletsAction  => ({type: dappletsActionsType.FETCH_DAPPLETS, payload: dapplets});
 const setIsError = (isError: boolean): dappletsAction  => ({type: dappletsActionsType.FETCH_DAPPLETS_ERROR, payload: isError});

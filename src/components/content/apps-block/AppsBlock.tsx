@@ -37,7 +37,6 @@ const AppsBlock: React.FC<AppsBlockProps> = ({isOpenSideBar}) => {
     },[fetching]);
 
     useEffect(() => {
-         dappletsState.dapplets= [];
          fetchNewDapplets(page, filter, sortType, dappletsState.dapplets);
          setFetching(false);
     },[sortType, filter]);
@@ -56,7 +55,7 @@ const AppsBlock: React.FC<AppsBlockProps> = ({isOpenSideBar}) => {
                             next={onLoad}
                             hasMore={page <= totalPages}
                             loader={<Loader isFetching={true}/>}
-                            endMessage={<div>Its all</div>}
+                            endMessage={<div className={style.listEnd}><h2>Its all dapplets</h2></div>}
                             className={style.dapplets}>
                             {dapplets}
                         </InfiniteScroll>
