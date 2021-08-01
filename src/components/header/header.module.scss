@@ -9,6 +9,9 @@
                 rgba(255, 255, 255, 0) 100%), rgba(255, 255, 255, 0.3);
     backdrop-filter: blur(20px);
     transition: padding-left 1s;
+    position: sticky;
+    top: 0;
+    z-index: 5;
     &_active{
         padding-left: 20px;
     }

@@ -47,27 +47,27 @@ class Search extends React.Component<SearchingProps, SearchingState> {
         this.props.dispatchSort(option.value);
     }
     render() {
-    const value = this.state.value;
-    const options = [
-        {value: 'DESC', label: 'Descending'},
-        {value: 'ASC', label: 'Ascending'}
-    ];
-    const defaultOption = options[0];
+        const value = this.state.value;
+        const options = [
+            {value: 'DESC', label: 'Descending'},
+            {value: 'ASC', label: 'Ascending'}
+        ];
+        const defaultOption = options[0];
 
-    return (
-        <div className={style.wrapper}>
-            <div className={style.searchBlock}>
-                <img className={style.searchImg} src={search} alt={' '} />
-                <input className={style.searchInput} value={value} placeholder={'Search'}
-                       type='text' onChange={this.onHandleChange}/>
+        return (
+            <div className={style.wrapper}>
+                <div className={style.searchBlock}>
+                    <img className={style.searchImg} src={search} alt={' '} />
+                    <input className={style.searchInput} value={value} placeholder={'Search'}
+                           type='text' onChange={this.onHandleChange}/>
+                </div>
+                <Dropdown options={options} onChange={this._onSelect}  value={defaultOption} placeholder="Select an option"
+                          placeholderClassName ='myPlaceholderClassName'
+                          arrowClassName='myArrowClassName'
+                          menuClassName='myMenuClassName'/>
             </div>
-            <Dropdown options={options} onChange={this._onSelect}  value={defaultOption} placeholder="Select an option"
-                      placeholderClassName ='myPlaceholderClassName'
-                      arrowClassName='myArrowClassName'
-                      menuClassName='myMenuClassName'/>
-        </div>
-    );
-};
+        );
+    };
 }
 
 export default Search;

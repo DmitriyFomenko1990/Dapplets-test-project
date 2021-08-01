@@ -212,7 +212,7 @@
   padding-right: 14px;
   padding-top: 20px;
   display: flex;
-  @media only screen and (max-width: 1900px) {
+  @media only screen and (max-width: 1024px) {
    flex-wrap: wrap;
   }
 
@@ -248,10 +248,13 @@
 }
 .firstDescriptionBlock{
   width: 400px;
-  @media only screen and (max-width: 1900px) {
+  @media only screen and (max-width: 1440px) {
     width: 100%;
-    margin: 0 50px 20px;
+    margin-right: 20px;
 }
+  @media only screen and (max-width: 1024px) {
+    margin: 0 0 10px;
+  }
   @media only screen and (max-width: 768px) {
     width: 100%;
     margin: 0 0 10px;
@@ -288,17 +291,17 @@
 .secondDescriptionBlock ,.thirdDescriptionBlock,
 .fourthDescriptionBlock{
   transition:margin-right 1s;
-  @media only screen and (max-width: 1900px) {
-   flex: 1 1 auto;
+  & > section {
+      height: 65px;
+      @media only screen and (max-width: 768px) {
+      height: initial;
+    }
+  }
+  @media only screen and (max-width: 1024px) {
+    flex: 1 1 auto;
     margin-left: 50px;
   }
   @media only screen and (max-width: 768px) {
     margin-left: 0;
-  }
-  & > section {
-    margin-bottom: 27px;
-      @media only screen and (max-width: 768px) {
-      margin-bottom: 0;
-    }
   }
 }
